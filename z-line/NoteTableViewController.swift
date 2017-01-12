@@ -13,6 +13,14 @@ class NoteTableViewController: UITableViewController {
     //MARK: Properties
     @IBOutlet weak var navBar: UINavigationItem!
     
+    //MARK: Actions
+    @IBAction func longPressOnCell(_ sender: AnyObject) {
+        if(sender.state == UIGestureRecognizerState.began) {
+            self.performSegue(withIdentifier: "toEditNoteFromNoteTable", sender: sender)
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +41,23 @@ class NoteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteTableCell", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,7 +100,10 @@ class NoteTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toNewNote") {
-            
+            segue.destination.title = "New"
+        }
+        if(segue.identifier == "toEditNoteFromNoteTable") {
+            segue.destination.title = "Edit"
         }
     }
     

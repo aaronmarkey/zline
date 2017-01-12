@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxP-6S-hek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="-322"/>
+            <point key="canvasLocation" x="2137" y="-279"/>
         </scene>
         <!--Markdown Help View Controller-->
         <scene sceneID="ilI-vF-EUi">
@@ -62,12 +62,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkl-Yp-jWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="giT-1p-r65" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2289" y="-322"/>
+            <point key="canvasLocation" x="3052" y="-279"/>
         </scene>
-        <!--View Controller-->
+        <!--Note Preview View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NotePreviewViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -77,6 +77,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uwg-Ap-Vc7">
+                        <barButtonItem key="backBarButtonItem" title=" " id="HU3-wP-VHY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="py7-Eg-JS1">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="LTr-Mj-syD" kind="show" identifier="toEditNote" id="bE8-Gh-Xyz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,8 +106,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LoS-DG-eFG" id="Ibl-CO-0cE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT5-Pw-xaA">
+                                            <rect key="frame" x="131" y="11" width="39" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ebt-rN-cAM" appends="YES" id="HbP-1s-4dm"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Q8j-pb-BU0"/>
                                 </connections>
                             </tableViewCell>
@@ -119,9 +139,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navBar" destination="6Do-V5-nHe" id="FeU-cZ-OXt"/>
+                        <segue destination="LTr-Mj-syD" kind="show" identifier="toEditNoteFromNoteTable" id="iBs-b8-M0X"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqx-jd-WO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ebt-rN-cAM">
+                    <connections>
+                        <action selector="longPressOnCell:" destination="pv5-sb-IpN" id="O2t-hC-MMG"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="401" y="37"/>
         </scene>
@@ -146,4 +172,7 @@
             <point key="canvasLocation" x="-516" y="37"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iBs-b8-M0X"/>
+    </inferredMetricsTieBreakers>
 </document>
