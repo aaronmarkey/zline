@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteTableViewController: UITableViewController {
 
     //MARK: Properties
+    var notes: [NSManagedObject] = []
+    
     @IBOutlet weak var navBar: UINavigationItem!
     
     //MARK: Actions
@@ -20,7 +23,10 @@ class NoteTableViewController: UITableViewController {
         }
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        notes = getNotes()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +52,7 @@ class NoteTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return notes.count
     }
 
     
@@ -59,13 +65,13 @@ class NoteTableViewController: UITableViewController {
     }
  
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+ 
 
     /*
     // Override to support editing the table view.
@@ -96,14 +102,24 @@ class NoteTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toNewNote") {
             segue.destination.title = "New"
+            let destination = segue.destination as! NoteTextViewController
+            destination.isNew = true
         }
+        
         if(segue.identifier == "toEditNoteFromNoteTable") {
             segue.destination.title = "Edit"
+            let destination = segue.destination as! NoteTextViewController
+            destination.isNew = false
+        }
+        
+        if(segue.identifier == "toPreviewNote") {
+            let destination = segue.destination as! NotePreviewViewController
+            let index = tableView.indexPathForSelectedRow as IndexPath?
+            let note = notes[(index! as NSIndexPath).row] as! NoteMO
+            destination.rawString = note.content!
         }
     }
     

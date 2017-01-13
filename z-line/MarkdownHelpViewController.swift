@@ -10,11 +10,12 @@ import UIKit
 
 class MarkdownHelpViewController: UIViewController {
 
-    //MARK: Properties    
+    //MARK: Properties
+    @IBOutlet weak var webView: UIWebView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +24,9 @@ class MarkdownHelpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        webView.loadHTMLString("<html><body><p>Preview</p></body></html>", baseURL: nil)
+    }
 
     /*
     // MARK: - Navigation

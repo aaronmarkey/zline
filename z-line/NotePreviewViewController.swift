@@ -10,6 +10,11 @@ import UIKit
 
 class NotePreviewViewController: UIViewController {
 
+    //MARK: Properties
+    var rawString: String = ""
+    @IBOutlet weak var webView: UIWebView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Preview"
@@ -19,6 +24,10 @@ class NotePreviewViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        webView.loadHTMLString(rawString, baseURL: nil)
     }
     
 
