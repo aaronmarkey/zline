@@ -9,14 +9,16 @@
 import UIKit
 import CoreData
 
+func getDelegate() -> AppDelegate {
+    return UIApplication.shared.delegate as! AppDelegate
+}
 
-func getContext() -> NSManagedObjectContext {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+func getContext(_ appDelegate: AppDelegate) -> NSManagedObjectContext {
     return appDelegate.persistentContainer.viewContext
 }
 
 func getNotes() -> [NSManagedObject] {
-    let context = getContext()
+    let context = getContext(getDelegate())
     let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
     
     do {
@@ -29,7 +31,7 @@ func getNotes() -> [NSManagedObject] {
 }
 
 func storeNote(content: String, date: NSDate) {
-    let context = getContext()
+    let context = getContext(getDelegate())
     let entity = NSEntityDescription.entity(forEntityName: "Note", in: context)!
     let store = NSManagedObject(entity: entity, insertInto: context)
     
@@ -42,4 +44,36 @@ func storeNote(content: String, date: NSDate) {
     } catch _ as NSError {
         print("Cannot save new note.")
     }
+}
+
+func updateNote(content: String, date: NSDate, notes: [NSManagedObject], index: Int) {
+    print("\(content.isEmpty)")
+    print("helloz")
+    if(content.isEmpty) {
+        deleteNote(notes: notes, index: index)
+    } else {
+        let context = getContext(getDelegate())
+        notes[index].setValue(content, forKey: "content")
+        notes[index].setValue(date, forKey: "updated_at")
+        
+        do {
+            try context.save()
+        } catch _ as NSError {
+            print("Cannot update existing note.")
+        }
+    }
+    
+}
+
+func deleteNote(notes: [NSManagedObject], index: Int) {
+    let delegate = getDelegate()
+    let context = getContext(delegate)
+    
+    context.delete(notes[index])
+    delegate.saveContext()
+//    do {
+//        try context.save()
+//    } catch _ as NSError {
+//        print("Cannot delete note.")
+//    }
 }

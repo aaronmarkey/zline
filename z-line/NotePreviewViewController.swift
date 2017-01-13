@@ -7,23 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class NotePreviewViewController: UIViewController {
 
     //MARK: Properties
     var rawString: String = ""
+    var notes: [NSManagedObject] = []
+    var index: Int = 0
+    
     @IBOutlet weak var webView: UIWebView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Preview"
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +35,16 @@ class NotePreviewViewController: UIViewController {
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if(segue.identifier == "toEditNote") {
-            segue.destination.title = "Edit"
+            let destination = segue.destination as! NoteTextViewController
+            
+            destination.title = "Edit"
+            destination.existingText = rawString
+            destination.isNew = false
+            destination.index = index
+            destination.notes = notes
+            
         }
     }
  

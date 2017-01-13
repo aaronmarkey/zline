@@ -143,7 +143,7 @@
         <!--z_line-->
         <scene sceneID="LGs-Wh-ofE">
             <objects>
-                <tableViewController id="pv5-sb-IpN" customClass="NoteTableViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NoteTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pv5-sb-IpN" customClass="NoteTableViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PTl-u3-YcE">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,6 +222,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bE8-Gh-Xyz"/>
+        <segue reference="iBs-b8-M0X"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,7 @@ class NoteTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         notes = getNotes()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -43,15 +44,13 @@ class NoteTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return notes.count
     }
 
@@ -64,26 +63,17 @@ class NoteTableViewController: UITableViewController {
         return cell
     }
  
-
-    
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
- 
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            deleteNote(notes: notes, index: indexPath.row)
+            notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -112,14 +102,22 @@ class NoteTableViewController: UITableViewController {
         if(segue.identifier == "toEditNoteFromNoteTable") {
             segue.destination.title = "Edit"
             let destination = segue.destination as! NoteTextViewController
+            let index = tableView.indexPathForSelectedRow as IndexPath?
+            
             destination.isNew = false
+            destination.index = (index! as NSIndexPath).row
+            destination.notes = notes
         }
         
         if(segue.identifier == "toPreviewNote") {
             let destination = segue.destination as! NotePreviewViewController
             let index = tableView.indexPathForSelectedRow as IndexPath?
             let note = notes[(index! as NSIndexPath).row] as! NoteMO
+            
             destination.rawString = note.content!
+            destination.index = (index! as NSIndexPath).row
+            destination.notes = notes
+            
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteTextViewController: UIViewController {
 
@@ -15,39 +16,55 @@ class NoteTextViewController: UIViewController {
     
     
     var isNew: Bool!
+    var existingText: String = ""
+    var notes: [NSManagedObject] = []
+    var index: Int = 0
     
     //MARK: Actions
     @IBAction func cancelToNoteTableViewController(segue: UIStoryboardSegue) {
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if(isNew == false) {
+            textView.text = existingText
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(!textView.text.isEmpty) {
-            if(isNew ?? true) {
+            if(isNew == true) {
                 storeNote(content: textView.text, date: NSDate())
+            } else {
+                updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
+                    parent.rawString = textView.text
+                }
             }
+        } else {
+            deleteNote(notes: notes, index: index)
+            let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
+            self.navigationController?.viewControllers.removeAll()
+            self.navigationController?.pushViewController(table, animated: true)
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
+        return false
     }
-    */
-
+ 
 }
