@@ -13,7 +13,6 @@
 		931838901E289602004F018D /* z_line.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9318388F1E289602004F018D /* z_line.sqlite */; };
 		931838941E292B6D004F018D /* NoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838931E292B6D004F018D /* NoteManagement.swift */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
-		93EC735B1E25DE040068EB1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC735A1E25DE040068EB1D /* ViewController.swift */; };
 		93EC735E1E25DE040068EB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC735C1E25DE040068EB1D /* Main.storyboard */; };
 		93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93EC735F1E25DE040068EB1D /* z_line.xcdatamodeld */; };
 		93EC73631E25DE040068EB1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93EC73621E25DE040068EB1D /* Assets.xcassets */; };
@@ -42,7 +41,6 @@
 		931838931E292B6D004F018D /* NoteManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManagement.swift; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EC73581E25DE040068EB1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93EC735A1E25DE040068EB1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93EC735D1E25DE040068EB1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93EC73601E25DE040068EB1D /* z_line.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = z_line.xcdatamodel; sourceTree = "<group>"; };
 		93EC73621E25DE040068EB1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				9318388F1E289602004F018D /* z_line.sqlite */,
 				931838891E274DBA004F018D /* MarkdownHelpViewController.swift */,
 				93EC73581E25DE040068EB1D /* AppDelegate.swift */,
-				93EC735A1E25DE040068EB1D /* ViewController.swift */,
 				93EC735C1E25DE040068EB1D /* Main.storyboard */,
 				93EC73621E25DE040068EB1D /* Assets.xcassets */,
 				93EC73641E25DE040068EB1D /* LaunchScreen.storyboard */,
@@ -234,7 +231,6 @@
 				93EC737E1E2711D70068EB1D /* NoteTableViewController.swift in Sources */,
 				93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */,
 				931838941E292B6D004F018D /* NoteManagement.swift in Sources */,
-				93EC735B1E25DE040068EB1D /* ViewController.swift in Sources */,
 				931838881E2737D3004F018D /* NoteTableViewCell.swift in Sources */,
 				93EC737C1E2706760068EB1D /* Utilities.swift in Sources */,
 				93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */,

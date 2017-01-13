@@ -15,6 +15,7 @@ class NoteTableViewController: UITableViewController {
     var notes: [NSManagedObject] = []
     
     @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet var longPressOnCellOutlet: UILongPressGestureRecognizer!
     
     //MARK: Actions
     @IBAction func longPressOnCell(_ sender: AnyObject) {
@@ -41,7 +42,6 @@ class NoteTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -62,7 +62,7 @@ class NoteTableViewController: UITableViewController {
 
         return cell
     }
- 
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -74,21 +74,6 @@ class NoteTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
@@ -102,11 +87,14 @@ class NoteTableViewController: UITableViewController {
         if(segue.identifier == "toEditNoteFromNoteTable") {
             segue.destination.title = "Edit"
             let destination = segue.destination as! NoteTextViewController
-            let index = tableView.indexPathForSelectedRow as IndexPath?
-            
-            destination.isNew = false
-            destination.index = (index! as NSIndexPath).row
-            destination.notes = notes
+            let touchPoint = longPressOnCellOutlet.location(in: self.view)
+            if let index = tableView.indexPathForRow(at: touchPoint) {
+                let note = notes[(index as NSIndexPath).row] as! NoteMO
+                destination.isNew = false
+                destination.index = (index as NSIndexPath).row
+                destination.existingText = note.content!
+                destination.notes = notes
+            }
         }
         
         if(segue.identifier == "toPreviewNote") {
@@ -117,7 +105,6 @@ class NoteTableViewController: UITableViewController {
             destination.rawString = note.content!
             destination.index = (index! as NSIndexPath).row
             destination.notes = notes
-            
         }
     }
     

@@ -47,8 +47,6 @@ func storeNote(content: String, date: NSDate) {
 }
 
 func updateNote(content: String, date: NSDate, notes: [NSManagedObject], index: Int) {
-    print("\(content.isEmpty)")
-    print("helloz")
     if(content.isEmpty) {
         deleteNote(notes: notes, index: index)
     } else {
