@@ -12,6 +12,7 @@
 		9318388A1E274DBA004F018D /* MarkdownHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838891E274DBA004F018D /* MarkdownHelpViewController.swift */; };
 		931838901E289602004F018D /* z_line.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9318388F1E289602004F018D /* z_line.sqlite */; };
 		931838941E292B6D004F018D /* NoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838931E292B6D004F018D /* NoteManagement.swift */; };
+		93AD10771E2983F10046D30E /* Markingbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD10761E2983F10046D30E /* Markingbird.swift */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
 		93EC735E1E25DE040068EB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC735C1E25DE040068EB1D /* Main.storyboard */; };
 		93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93EC735F1E25DE040068EB1D /* z_line.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 		93EC737C1E2706760068EB1D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737B1E2706760068EB1D /* Utilities.swift */; };
 		93EC737E1E2711D70068EB1D /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737D1E2711D70068EB1D /* NoteTableViewController.swift */; };
 		93EC73801E2721EB0068EB1D /* NoteTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737F1E2721EB0068EB1D /* NoteTextViewController.swift */; };
+		EBEBAC5C2C74A923FF95A438 /* Pods_z_line.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9E14C2207AB99D4623C37 /* Pods_z_line.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81B9E14C2207AB99D4623C37 /* Pods_z_line.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_z_line.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92063A1A29F067C69A71404E /* Pods-z-line.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z-line.debug.xcconfig"; path = "Pods/Target Support Files/Pods-z-line/Pods-z-line.debug.xcconfig"; sourceTree = "<group>"; };
 		931838851E2736B0004F018D /* NotePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotePreviewViewController.swift; sourceTree = "<group>"; };
 		931838871E2737D3004F018D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		931838891E274DBA004F018D /* MarkdownHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHelpViewController.swift; sourceTree = "<group>"; };
 		9318388F1E289602004F018D /* z_line.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = z_line.sqlite; sourceTree = "<group>"; };
 		931838931E292B6D004F018D /* NoteManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManagement.swift; sourceTree = "<group>"; };
+		93AD10761E2983F10046D30E /* Markingbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markingbird.swift; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EC73581E25DE040068EB1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93EC735D1E25DE040068EB1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		93EC737B1E2706760068EB1D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		93EC737D1E2711D70068EB1D /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		93EC737F1E2721EB0068EB1D /* NoteTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextViewController.swift; sourceTree = "<group>"; };
+		E6677CEC5ED325849C329196 /* Pods-z-line.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z-line.release.xcconfig"; path = "Pods/Target Support Files/Pods-z-line/Pods-z-line.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEBAC5C2C74A923FF95A438 /* Pods_z_line.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 				93EC73571E25DE040068EB1D /* z-line */,
 				93EC736F1E25DE050068EB1D /* z-lineTests */,
 				93EC73561E25DE040068EB1D /* Products */,
+				FD02063E8CB741EE0171453F /* Pods */,
+				D4D37796D4DEF25D63511B15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +116,7 @@
 				931838851E2736B0004F018D /* NotePreviewViewController.swift */,
 				931838871E2737D3004F018D /* NoteTableViewCell.swift */,
 				931838931E292B6D004F018D /* NoteManagement.swift */,
+				93AD10761E2983F10046D30E /* Markingbird.swift */,
 			);
 			path = "z-line";
 			sourceTree = "<group>";
@@ -120,6 +130,23 @@
 			path = "z-lineTests";
 			sourceTree = "<group>";
 		};
+		D4D37796D4DEF25D63511B15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81B9E14C2207AB99D4623C37 /* Pods_z_line.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD02063E8CB741EE0171453F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92063A1A29F067C69A71404E /* Pods-z-line.debug.xcconfig */,
+				E6677CEC5ED325849C329196 /* Pods-z-line.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93EC73751E25DE050068EB1D /* Build configuration list for PBXNativeTarget "z-line" */;
 			buildPhases = (
+				F3CB9829B8C017EB9A0B4CAD /* [CP] Check Pods Manifest.lock */,
 				93EC73511E25DE040068EB1D /* Sources */,
 				93EC73521E25DE040068EB1D /* Frameworks */,
 				93EC73531E25DE040068EB1D /* Resources */,
+				625E498448C4022F2FF82E9C /* [CP] Embed Pods Frameworks */,
+				F58B0864175F16EA5E42A396 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,6 +251,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		625E498448C4022F2FF82E9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-z-line/Pods-z-line-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3CB9829B8C017EB9A0B4CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F58B0864175F16EA5E42A396 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-z-line/Pods-z-line-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93EC73511E25DE040068EB1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -232,6 +310,7 @@
 				93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */,
 				931838941E292B6D004F018D /* NoteManagement.swift in Sources */,
 				931838881E2737D3004F018D /* NoteTableViewCell.swift in Sources */,
+				93AD10771E2983F10046D30E /* Markingbird.swift in Sources */,
 				93EC737C1E2706760068EB1D /* Utilities.swift in Sources */,
 				93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */,
 				93EC73801E2721EB0068EB1D /* NoteTextViewController.swift in Sources */,
@@ -369,6 +448,7 @@
 		};
 		93EC73761E25DE050068EB1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92063A1A29F067C69A71404E /* Pods-z-line.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9PPF82D26L;
@@ -383,6 +463,7 @@
 		};
 		93EC73771E25DE050068EB1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6677CEC5ED325849C329196 /* Pods-z-line.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9PPF82D26L;

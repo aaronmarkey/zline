@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NotePreviewViewController: UIViewController {
+class NotePreviewViewController: UIViewController, UIWebViewDelegate {
 
     //MARK: Properties
     var rawString: String = ""
@@ -22,6 +22,7 @@ class NotePreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Preview"
+        webView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +30,14 @@ class NotePreviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        webView.loadHTMLString(rawString, baseURL: nil)
+        var markdown = Markdown()
+        let html: String = markdown.transform(rawString)
+        
+        //MARK: TODO - Figure out how CSS will be applied to note
+        let style="<style>img{ width: 100%; height: auto; }</style>"
+        
+        webView.backgroundColor = .white
+        webView.loadHTMLString(style + html, baseURL: nil)
     }
     
 
@@ -48,5 +56,14 @@ class NotePreviewViewController: UIViewController {
         }
     }
  
+    
+    //MARK: UIWwebViewDelegate Function
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked {
+            UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
+            return false
+        }
+        return true
+    }
 
 }
