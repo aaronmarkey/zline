@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteTextViewController: UIViewController {
+class NoteTextViewController: UIViewController, UITextViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var textView: UITextView!
@@ -19,6 +19,7 @@ class NoteTextViewController: UIViewController {
     var existingText: String = ""
     var notes: [NSManagedObject] = []
     var index: Int = 0
+    var viewControllers: [UIViewController] = []
     
     //MARK: Actions
     @IBAction func cancelToNoteTableViewController(segue: UIStoryboardSegue) {
@@ -28,6 +29,8 @@ class NoteTextViewController: UIViewController {
         super.viewWillAppear(animated)
         if(isNew == false) {
             textView.text = existingText
+            textView.delegate = self
+            viewControllers = (self.navigationController?.viewControllers)!
         }
     }
     
@@ -66,6 +69,16 @@ class NoteTextViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toMarkdownHelp") {
             textView.resignFirstResponder()
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if(textView.text.isEmpty) {
+            let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
+            self.navigationController?.viewControllers.remove(at: (self.navigationController?.viewControllers.count)! - 2)
+            self.navigationController?.viewControllers = [table, self]
+        } else {
+            self.navigationController?.viewControllers = viewControllers
         }
     }
  
