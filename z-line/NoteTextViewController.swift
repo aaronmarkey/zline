@@ -62,9 +62,11 @@ class NoteTextViewController: UIViewController {
             self.navigationController?.pushViewController(table, animated: true)
         }
     }
-
-    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
-        return false
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toMarkdownHelp") {
+            textView.resignFirstResponder()
+        }
     }
  
 }
