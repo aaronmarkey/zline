@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PgM-1X-rYR">
-                                <rect key="frame" x="16" y="20" width="343" height="563"/>
+                                <rect key="frame" x="16" y="10" width="343" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -32,9 +32,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ux7-oF-AfJ" firstAttribute="top" secondItem="PgM-1X-rYR" secondAttribute="bottom" constant="20" id="0Wn-XE-DqO"/>
+                            <constraint firstItem="Ux7-oF-AfJ" firstAttribute="top" secondItem="PgM-1X-rYR" secondAttribute="bottom" id="0Wn-XE-DqO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="PgM-1X-rYR" secondAttribute="leading" id="bKE-qG-4lO"/>
-                            <constraint firstItem="PgM-1X-rYR" firstAttribute="top" secondItem="ccK-6A-PCr" secondAttribute="bottom" constant="20" id="gz9-Vo-6F7"/>
+                            <constraint firstItem="PgM-1X-rYR" firstAttribute="top" secondItem="ccK-6A-PCr" secondAttribute="bottom" constant="10" id="gz9-Vo-6F7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PgM-1X-rYR" secondAttribute="trailing" id="hr0-mP-DCV"/>
                         </constraints>
                     </view>
@@ -48,6 +48,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="textView" destination="PgM-1X-rYR" id="Nsn-0G-ntV"/>
+                        <outlet property="textViewBottomConstraint" destination="0Wn-XE-DqO" id="ijL-lz-BwV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxP-6S-hek" userLabel="First Responder" sceneMemberID="firstResponder"/>

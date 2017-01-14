@@ -13,6 +13,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     
     var isNew: Bool!
@@ -41,6 +42,10 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillShowHandle(note:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillHideHandle), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,6 +85,18 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         } else {
             self.navigationController?.viewControllers = viewControllers
         }
+    }
+    
+    func keyboardWillShowHandle(note:NSNotification) {
+        guard let keyboardRect = note.userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboard = keyboardRect.cgRectValue
+        textViewBottomConstraint.constant = keyboard.height
+        view.layoutIfNeeded()
+    }
+    
+    func keyboardWillHideHandle() {
+        textViewBottomConstraint.constant = 0
+        view.layoutIfNeeded()
     }
  
 }

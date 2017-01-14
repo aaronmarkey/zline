@@ -12,6 +12,7 @@
 		9318388A1E274DBA004F018D /* MarkdownHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838891E274DBA004F018D /* MarkdownHelpViewController.swift */; };
 		931838901E289602004F018D /* z_line.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9318388F1E289602004F018D /* z_line.sqlite */; };
 		931838941E292B6D004F018D /* NoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838931E292B6D004F018D /* NoteManagement.swift */; };
+		936653811E2AE163008A9A7C /* NoteTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653801E2AE163008A9A7C /* NoteTextViewController.swift */; };
 		93AD10771E2983F10046D30E /* Markingbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD10761E2983F10046D30E /* Markingbird.swift */; };
 		93AD107A1E299A410046D30E /* modest-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 93AD10791E299A410046D30E /* modest-m.css */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
@@ -22,7 +23,6 @@
 		93EC73711E25DE050068EB1D /* z_lineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73701E25DE050068EB1D /* z_lineTests.swift */; };
 		93EC737C1E2706760068EB1D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737B1E2706760068EB1D /* Utilities.swift */; };
 		93EC737E1E2711D70068EB1D /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737D1E2711D70068EB1D /* NoteTableViewController.swift */; };
-		93EC73801E2721EB0068EB1D /* NoteTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC737F1E2721EB0068EB1D /* NoteTextViewController.swift */; };
 		EBEBAC5C2C74A923FF95A438 /* Pods_z_line.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9E14C2207AB99D4623C37 /* Pods_z_line.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +44,7 @@
 		931838891E274DBA004F018D /* MarkdownHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHelpViewController.swift; sourceTree = "<group>"; };
 		9318388F1E289602004F018D /* z_line.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = z_line.sqlite; sourceTree = "<group>"; };
 		931838931E292B6D004F018D /* NoteManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManagement.swift; sourceTree = "<group>"; };
+		936653801E2AE163008A9A7C /* NoteTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextViewController.swift; sourceTree = "<group>"; };
 		93AD10761E2983F10046D30E /* Markingbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markingbird.swift; sourceTree = "<group>"; };
 		93AD10791E299A410046D30E /* modest-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "modest-m.css"; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +59,6 @@
 		93EC73721E25DE050068EB1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EC737B1E2706760068EB1D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		93EC737D1E2711D70068EB1D /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
-		93EC737F1E2721EB0068EB1D /* NoteTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextViewController.swift; sourceTree = "<group>"; };
 		E6677CEC5ED325849C329196 /* Pods-z-line.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z-line.release.xcconfig"; path = "Pods/Target Support Files/Pods-z-line/Pods-z-line.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,8 +122,8 @@
 				93EC73671E25DE040068EB1D /* Info.plist */,
 				93EC735F1E25DE040068EB1D /* z_line.xcdatamodeld */,
 				93EC737B1E2706760068EB1D /* Utilities.swift */,
+				936653801E2AE163008A9A7C /* NoteTextViewController.swift */,
 				93EC737D1E2711D70068EB1D /* NoteTableViewController.swift */,
-				93EC737F1E2721EB0068EB1D /* NoteTextViewController.swift */,
 				931838851E2736B0004F018D /* NotePreviewViewController.swift */,
 				931838871E2737D3004F018D /* NoteTableViewCell.swift */,
 				931838931E292B6D004F018D /* NoteManagement.swift */,
@@ -325,7 +325,7 @@
 				93AD10771E2983F10046D30E /* Markingbird.swift in Sources */,
 				93EC737C1E2706760068EB1D /* Utilities.swift in Sources */,
 				93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */,
-				93EC73801E2721EB0068EB1D /* NoteTextViewController.swift in Sources */,
+				936653811E2AE163008A9A7C /* NoteTextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
