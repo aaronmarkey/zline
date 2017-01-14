@@ -20,6 +20,8 @@ func getContext(_ appDelegate: AppDelegate) -> NSManagedObjectContext {
 func getNotes() -> [NSManagedObject] {
     let context = getContext(getDelegate())
     let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
+    let sort = NSSortDescriptor(key: "updated_at", ascending: false)
+    request.sortDescriptors = [sort]
     
     do {
         let notes = try context.fetch(request)
@@ -69,9 +71,4 @@ func deleteNote(notes: [NSManagedObject], index: Int) {
     
     context.delete(notes[index])
     delegate.saveContext()
-//    do {
-//        try context.save()
-//    } catch _ as NSError {
-//        print("Cannot delete note.")
-//    }
 }
