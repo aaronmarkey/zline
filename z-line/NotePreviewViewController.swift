@@ -59,10 +59,19 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
  
     //Mark: Functions
     func getCss() -> String {
-    var style = ""
-    style += "<style>"
-    style += "</style>"
-    return style
+        var style = "<style>"
+
+        if let file = Bundle.main.path(forResource: "modest-m", ofType: "css") {
+            do {
+                let css = try String(contentsOfFile: file)
+                style += css
+            } catch {
+                print("Could not load CSS")
+            }
+        }
+        
+        style += "</style>"
+        return style
     }
     
     //MARK: UIWwebViewDelegate Function
