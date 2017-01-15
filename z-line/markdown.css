@@ -12,7 +12,6 @@ h6 {
 
 table {
     border-collapse: collapse;
-    width: 100%
 }
 
 tr {
@@ -20,5 +19,5 @@ tr {
 }
 
 th, td {
-    padding: 10px;
+    padding: 20px 10px;
 }

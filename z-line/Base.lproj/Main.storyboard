@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCu-kl-n1L">
-                                <rect key="frame" x="10" y="58" width="355" height="609"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </webView>
@@ -82,7 +82,7 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="TSA-FP-tpd" firstAttribute="top" secondItem="CPu-kQ-Rm5" secondAttribute="bottom" constant="8" id="29U-SD-a6z"/>
-                            <constraint firstItem="wCu-kl-n1L" firstAttribute="width" secondItem="koH-l3-Smi" secondAttribute="width" constant="-20" id="Uka-Zj-WUT"/>
+                            <constraint firstItem="wCu-kl-n1L" firstAttribute="width" secondItem="koH-l3-Smi" secondAttribute="width" id="Uka-Zj-WUT"/>
                             <constraint firstItem="21p-pW-qbY" firstAttribute="top" secondItem="wCu-kl-n1L" secondAttribute="bottom" id="XsG-sU-4Tu"/>
                             <constraint firstItem="wCu-kl-n1L" firstAttribute="centerX" secondItem="koH-l3-Smi" secondAttribute="centerX" id="cCs-bq-DLa"/>
                             <constraint firstItem="wCu-kl-n1L" firstAttribute="top" secondItem="TSA-FP-tpd" secondAttribute="bottom" id="j6l-0t-EJg"/>
@@ -223,6 +223,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iBs-b8-M0X"/>
+        <segue reference="bE8-Gh-Xyz"/>
     </inferredMetricsTieBreakers>
 </document>
