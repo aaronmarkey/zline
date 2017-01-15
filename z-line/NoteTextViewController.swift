@@ -45,6 +45,13 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillHideHandle), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+        let nib = UINib(nibName: "MarkdownKeyboard", bundle: nil)
+        let markdownKeyboardView = nib.instantiate(withOwner: self, options: nil)[0] as! MarkdownKeyboardUIView
+        markdownKeyboardView.setButtons(textView: textView)
+        
+        
+        textView.inputAccessoryView = markdownKeyboardView
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,5 +112,4 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         textViewBottomConstraint.constant = 0
         view.layoutIfNeeded()
     }
-
 }
