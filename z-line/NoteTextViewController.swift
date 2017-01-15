@@ -15,7 +15,6 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
-    
     var isNew: Bool!
     var existingText: String = ""
     var notes: [NSManagedObject] = []
@@ -54,22 +53,28 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if(!textView.text.isEmpty) {
-            if(isNew == true) {
-                storeNote(content: textView.text, date: NSDate())
-            } else {
-                if(textView.text != existingText) {
-                    updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
-                    if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
-                        parent.rawString = textView.text
+        if(isNew == true) {
+            if(!textView.text.isEmpty) {
+                    storeNote(content: textView.text, date: NSDate())
+                }
+        } else {
+            if(!textView.text.isEmpty) {
+                if(isNew == true) {
+                    storeNote(content: textView.text, date: NSDate())
+                } else {
+                    if(textView.text != existingText) {
+                        updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                        if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
+                            parent.rawString = textView.text
+                        }
                     }
                 }
+            } else {
+                deleteNote(notes: notes, index: index)
+                let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
+                self.navigationController?.viewControllers.removeAll()
+                self.navigationController?.pushViewController(table, animated: true)
             }
-        } else {
-            deleteNote(notes: notes, index: index)
-            let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
-            self.navigationController?.viewControllers.removeAll()
-            self.navigationController?.pushViewController(table, animated: true)
         }
     }
     
@@ -100,5 +105,5 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         textViewBottomConstraint.constant = 0
         view.layoutIfNeeded()
     }
- 
+
 }
