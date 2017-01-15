@@ -15,7 +15,6 @@ func customColor(color value: String, alpha opacity: CGFloat = 1.0) -> UIColor {
     ]
     
     if let color = colors[value] {
-        print("\(color)")
         return UIColor(red: color[0], green: color[1], blue: color[2], alpha: color[3])
     } else {
         let color = colors["primary"]!

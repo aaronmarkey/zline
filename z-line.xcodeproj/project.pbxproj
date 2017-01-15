@@ -18,6 +18,7 @@
 		9366538E1E2B2F6E008A9A7C /* MarkdownUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366538D1E2B2F6E008A9A7C /* MarkdownUIButton.swift */; };
 		936653921E2B3318008A9A7C /* MarkdownKeyboardUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */; };
 		936653941E2B548E008A9A7C /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653931E2B548E008A9A7C /* NoteTableViewCell.swift */; };
+		936653961E2B611B008A9A7C /* table-cell.css in Resources */ = {isa = PBXBuildFile; fileRef = 936653951E2B611B008A9A7C /* table-cell.css */; };
 		93AD10771E2983F10046D30E /* Markingbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD10761E2983F10046D30E /* Markingbird.swift */; };
 		93AD107A1E299A410046D30E /* modest-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 93AD10791E299A410046D30E /* modest-m.css */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		9366538D1E2B2F6E008A9A7C /* MarkdownUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownUIButton.swift; sourceTree = "<group>"; };
 		936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownKeyboardUIView.swift; sourceTree = "<group>"; };
 		936653931E2B548E008A9A7C /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		936653951E2B611B008A9A7C /* table-cell.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "table-cell.css"; sourceTree = "<group>"; };
 		93AD10761E2983F10046D30E /* Markingbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markingbird.swift; sourceTree = "<group>"; };
 		93AD10791E299A410046D30E /* modest-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "modest-m.css"; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 		93AD10781E299A320046D30E /* css */ = {
 			isa = PBXGroup;
 			children = (
+				936653951E2B611B008A9A7C /* table-cell.css */,
 				936653851E2B029B008A9A7C /* markdown.css */,
 				93AD10791E299A410046D30E /* modest-m.css */,
 			);
@@ -275,6 +278,7 @@
 				93AD107A1E299A410046D30E /* modest-m.css in Resources */,
 				931838901E289602004F018D /* z_line.sqlite in Resources */,
 				936653841E2AF54A008A9A7C /* markdown-help.html in Resources */,
+				936653961E2B611B008A9A7C /* table-cell.css in Resources */,
 				93EC735E1E25DE040068EB1D /* Main.storyboard in Resources */,
 				936653861E2B029B008A9A7C /* markdown.css in Resources */,
 			);

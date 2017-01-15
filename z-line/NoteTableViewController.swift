@@ -55,14 +55,22 @@ class NoteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteTableCell", for: indexPath) as! NoteTableViewCell
         let note = notes[(indexPath as NSIndexPath).row] as! NoteMO
-        cell.contentOutlet.text = note.content
         cell.dateOutlet.text = formatDate(date: note.updated_at!)
         
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = customColor(color: "primary", alpha: 0.3)
+        cell.selectedBackgroundView = bgColorView
+        
+        cell.configurePreview(content: note.content!)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

@@ -163,26 +163,25 @@
                                             <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld8-Y4-NVs">
-                                            <rect key="frame" x="18" y="11" width="225" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-uW-Bt7">
+                                            <rect key="frame" x="18" y="4.5" width="225" height="33.5"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </webView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="AL3-EA-d4B"/>
-                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.6" id="HVp-bI-D6M"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="leading" secondItem="Ibl-CO-0cE" secondAttribute="leadingMargin" constant="10" id="KND-gi-5FF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="dZ4-jL-Dpe" secondAttribute="trailing" constant="10" id="LXs-4q-Ute"/>
                                         <constraint firstItem="dZ4-jL-Dpe" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.35" id="QlA-ks-2vh"/>
                                         <constraint firstItem="dZ4-jL-Dpe" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="R3X-gn-8jA"/>
-                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="leading" secondItem="Ibl-CO-0cE" secondAttribute="leadingMargin" constant="10" id="tua-Fu-lfN"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="height" secondItem="Ibl-CO-0cE" secondAttribute="height" constant="-10" id="jQk-Pg-sHE"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="lhZ-sL-Vaq"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.6" id="yS1-FX-ouL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="contentOutlet" destination="ld8-Y4-NVs" id="cCY-hH-E4L"/>
                                     <outlet property="dateOutlet" destination="dZ4-jL-Dpe" id="lNO-pD-UIH"/>
+                                    <outlet property="webView" destination="YqE-uW-Bt7" id="VTg-eu-zjU"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="toPreviewNote" id="Q8j-pb-BU0"/>
                                 </connections>
                             </tableViewCell>
