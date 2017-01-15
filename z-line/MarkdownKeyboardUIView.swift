@@ -21,7 +21,9 @@ class MarkdownKeyboardUIView: UIView {
     weak var textView: UITextView?
     
     @IBAction func buttonPressed(_ sender: MarkdownUIButton) {
-        textView?.text.append(sender.value)
+        if let range = textView?.selectedTextRange {
+            textView?.replace(range, withText: sender.value)
+        }
     }
     
     

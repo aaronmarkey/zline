@@ -20,6 +20,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     var notes: [NSManagedObject] = []
     var index: Int = 0
     var viewControllers: [UIViewController] = []
+    var nextView: String = ""
     
     //MARK: Actions
     @IBAction func cancelToNoteTableViewController(segue: UIStoryboardSegue) {
@@ -61,7 +62,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(isNew == true) {
-            if(!textView.text.isEmpty) {
+            if(!textView.text.isEmpty && nextView.isEmpty) {
                     storeNote(content: textView.text, date: NSDate())
                 }
         } else {
@@ -88,7 +89,12 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toMarkdownHelp") {
             textView.resignFirstResponder()
+            nextView = segue.identifier!
         }
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        nextView = ""
     }
     
     func textViewDidChange(_ textView: UITextView) {
