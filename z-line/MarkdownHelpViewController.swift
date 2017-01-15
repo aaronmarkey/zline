@@ -16,7 +16,6 @@ class MarkdownHelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,18 +24,11 @@ class MarkdownHelpViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        webView.loadHTMLString("<html><body><p>Preview</p></body></html>", baseURL: nil)
+        let body = getStringFromFile(name: "markdown-help", ext: "html")
+        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css")) + generateCss(css: getStringFromFile(name: "markdown", ext: "css"))
+        let html = generateFullHtmlDocument(body: body, css: css)
+        
+        webView.backgroundColor = customColor(color: "gray-light")
+        webView.loadHTMLString(html, baseURL: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-
 }

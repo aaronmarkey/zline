@@ -8,15 +8,48 @@
 
 import UIKit
 
-func customColor(color value: String) -> UIColor {
-    let colors: [String: [CGFloat]] = [
-        "primary": [153/255, 102/255, 51/255, 1.0/1.0]
+func customColor(color value: String, alpha opacity: CGFloat = 1.0) -> UIColor {
+    let colors: [String:[CGFloat]] = [
+        "primary": [CGFloat(153.0/255), CGFloat(102.0/255), CGFloat(51.0/255), opacity],
+        "gray-light": [CGFloat(245.0/255), CGFloat(245.0/255), CGFloat(245.0/255), opacity]
     ]
     
     if let color = colors[value] {
-        return UIColor.init(red: color[0], green: color[1], blue: color[2], alpha: color[3])
+        print("\(color)")
+        return UIColor(red: color[0], green: color[1], blue: color[2], alpha: color[3])
     } else {
         let color = colors["primary"]!
-        return UIColor.init(red: color[0], green: color[1], blue: color[2], alpha: color[3])
+        return UIColor(red: color[0], green: color[1], blue: color[2], alpha: color[3])
     }
+}
+
+func getStringFromFile(name: String, ext: String) -> String {
+    if let file = Bundle.main.path(forResource: name, ofType: ext) {
+        do {
+            let string = try String(contentsOfFile: file)
+            return string
+        } catch {
+            print("Could not load CSS")
+            return ""
+        }
+    } else {
+        print("Could not find file")
+        return ""
+    }
+}
+
+func generateCss(css: String) -> String {
+    return "<style>" + css + "</style>"
+}
+
+func generateFullHtmlDocument(body: String, css: String) -> String {
+    return
+        "<html>" +
+            "<head>" +
+                css +
+            "</head>" +
+            "<body>" +
+                body +
+            "</body>" +
+        "</html>"
 }

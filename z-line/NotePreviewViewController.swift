@@ -31,14 +31,11 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         var markdown = Markdown()
-        let html: String = markdown.transform(rawString)
-        let style: String = ""
-        let head = "<html><head>" + style + "</head><body>"
-        let foot = "</body></html>"
-        //MARK: TODO - Figure out how CSS will be applied to note
+        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css"))
+        let html = generateFullHtmlDocument(body: markdown.transform(rawString), css: css)
         
         webView.backgroundColor = .white
-        webView.loadHTMLString(head + getCss() + html + foot, baseURL: nil)
+        webView.loadHTMLString(html, baseURL: nil)
     }
     
 
@@ -57,22 +54,6 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
         }
     }
  
-    //Mark: Functions
-    func getCss() -> String {
-        var style = "<style>"
-
-        if let file = Bundle.main.path(forResource: "modest-m", ofType: "css") {
-            do {
-                let css = try String(contentsOfFile: file)
-                style += css
-            } catch {
-                print("Could not load CSS")
-            }
-        }
-        
-        style += "</style>"
-        return style
-    }
     
     //MARK: UIWwebViewDelegate Function
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {

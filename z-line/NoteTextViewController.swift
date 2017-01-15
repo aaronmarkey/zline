@@ -58,9 +58,11 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
             if(isNew == true) {
                 storeNote(content: textView.text, date: NSDate())
             } else {
-                updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
-                if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
-                    parent.rawString = textView.text
+                if(textView.text != existingText) {
+                    updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                    if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
+                        parent.rawString = textView.text
+                    }
                 }
             }
         } else {
