@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -149,24 +150,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteTableCell" id="LoS-DG-eFG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteTableCell" id="LoS-DG-eFG" customClass="NoteTableViewCell" customModule="z_line" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LoS-DG-eFG" id="Ibl-CO-0cE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT5-Pw-xaA">
-                                            <rect key="frame" x="131" y="11" width="39" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ4-jL-Dpe">
+                                            <rect key="frame" x="226" y="15" width="131" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld8-Y4-NVs">
+                                            <rect key="frame" x="18" y="11" width="225" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="AL3-EA-d4B"/>
+                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.6" id="HVp-bI-D6M"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dZ4-jL-Dpe" secondAttribute="trailing" constant="10" id="LXs-4q-Ute"/>
+                                        <constraint firstItem="dZ4-jL-Dpe" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.35" id="QlA-ks-2vh"/>
+                                        <constraint firstItem="dZ4-jL-Dpe" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="R3X-gn-8jA"/>
+                                        <constraint firstItem="ld8-Y4-NVs" firstAttribute="leading" secondItem="Ibl-CO-0cE" secondAttribute="leadingMargin" constant="10" id="tua-Fu-lfN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="contentOutlet" destination="ld8-Y4-NVs" id="cCY-hH-E4L"/>
+                                    <outlet property="dateOutlet" destination="dZ4-jL-Dpe" id="lNO-pD-UIH"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="toPreviewNote" id="Q8j-pb-BU0"/>
                                 </connections>
                             </tableViewCell>
@@ -199,7 +215,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="401" y="37"/>
+            <point key="canvasLocation" x="400.80000000000001" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BRh-wi-khe">
@@ -223,6 +239,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bE8-Gh-Xyz"/>
+        <segue reference="iBs-b8-M0X"/>
     </inferredMetricsTieBreakers>
 </document>

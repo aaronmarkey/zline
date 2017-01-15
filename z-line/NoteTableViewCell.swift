@@ -10,6 +10,10 @@ import UIKit
 
 class NoteTableViewCell: UITableViewCell {
 
+    //MARK: Outlets
+    @IBOutlet weak var contentOutlet: UILabel!
+    @IBOutlet weak var dateOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,4 @@ class NoteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -23,6 +23,13 @@ func customColor(color value: String, alpha opacity: CGFloat = 1.0) -> UIColor {
     }
 }
 
+func formatDate(date: NSDate) -> String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    
+    return formatter.string(from: date as Date)
+}
+
 func getStringFromFile(name: String, ext: String) -> String {
     if let file = Bundle.main.path(forResource: name, ofType: ext) {
         do {
