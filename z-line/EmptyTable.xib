@@ -28,6 +28,7 @@
                 <constraint firstItem="8xY-z4-Q3V" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oFJ-Dw-SvW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="13" y="47"/>
         </view>
     </objects>
 </document>
