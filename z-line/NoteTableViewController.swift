@@ -27,7 +27,15 @@ class NoteTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         notes = getNotes()
-        tableView.reloadData()
+        
+        if(notes.isEmpty) {
+            let nib = UINib(nibName: "EmptyTable", bundle: nil)
+            let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+            self.view = empty
+        } else {
+            self.view = tableView
+            tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -75,6 +83,10 @@ class NoteTableViewController: UITableViewController {
             deleteNote(notes: notes, index: indexPath.row)
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let nib = UINib(nibName: "EmptyTable", bundle: nil)
+            let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+            self.view = empty
         }
     }
     

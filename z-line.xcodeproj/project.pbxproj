@@ -11,6 +11,7 @@
 		9318388A1E274DBA004F018D /* MarkdownHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838891E274DBA004F018D /* MarkdownHelpViewController.swift */; };
 		931838901E289602004F018D /* z_line.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9318388F1E289602004F018D /* z_line.sqlite */; };
 		931838941E292B6D004F018D /* NoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838931E292B6D004F018D /* NoteManagement.swift */; };
+		934A13D31E2D4C5700AFE4F4 /* EmptyTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934A13D21E2D4C5700AFE4F4 /* EmptyTable.xib */; };
 		936653811E2AE163008A9A7C /* NoteTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653801E2AE163008A9A7C /* NoteTextViewController.swift */; };
 		936653841E2AF54A008A9A7C /* markdown-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 936653831E2AF54A008A9A7C /* markdown-help.html */; };
 		936653861E2B029B008A9A7C /* markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = 936653851E2B029B008A9A7C /* markdown.css */; };
@@ -50,6 +51,7 @@
 		931838891E274DBA004F018D /* MarkdownHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHelpViewController.swift; sourceTree = "<group>"; };
 		9318388F1E289602004F018D /* z_line.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = z_line.sqlite; sourceTree = "<group>"; };
 		931838931E292B6D004F018D /* NoteManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManagement.swift; sourceTree = "<group>"; };
+		934A13D21E2D4C5700AFE4F4 /* EmptyTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTable.xib; sourceTree = "<group>"; };
 		936653801E2AE163008A9A7C /* NoteTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextViewController.swift; sourceTree = "<group>"; };
 		936653831E2AF54A008A9A7C /* markdown-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "markdown-help.html"; sourceTree = "<group>"; };
 		936653851E2B029B008A9A7C /* markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = markdown.css; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				9366538D1E2B2F6E008A9A7C /* MarkdownUIButton.swift */,
 				936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */,
 				9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */,
+				934A13D21E2D4C5700AFE4F4 /* EmptyTable.xib */,
 			);
 			path = "z-line";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				9366538C1E2B2381008A9A7C /* MarkdownKeyboard.xib in Resources */,
 				93EC73631E25DE040068EB1D /* Assets.xcassets in Resources */,
 				93AD107A1E299A410046D30E /* modest-m.css in Resources */,
+				934A13D31E2D4C5700AFE4F4 /* EmptyTable.xib in Resources */,
 				931838901E289602004F018D /* z_line.sqlite in Resources */,
 				936653841E2AF54A008A9A7C /* markdown-help.html in Resources */,
 				936653961E2B611B008A9A7C /* table-cell.css in Resources */,
