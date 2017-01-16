@@ -21,6 +21,7 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
             let nav = window.rootViewController as! UINavigationController
             let noteView = nav.storyboard!.instantiateViewController(withIdentifier: "NoteTextView") as! NoteTextViewController
             noteView.isNew = true
+            noteView.title = "New"
             nav.pushViewController(noteView, animated: true)
             handled = true
         }
