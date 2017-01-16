@@ -15,12 +15,13 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
-    var isNew: Bool!
+    var isNew: Bool! = false
     var existingText: String = ""
     var notes: [NSManagedObject] = []
     var index: Int = 0
     var viewControllers: [UIViewController] = []
     var nextView: String = ""
+
     
     //MARK: Actions
     @IBAction func cancelToNoteTableViewController(segue: UIStoryboardSegue) {
@@ -67,14 +68,10 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
                 }
         } else {
             if(!textView.text.isEmpty) {
-                if(isNew == true) {
-                    storeNote(content: textView.text, date: NSDate())
-                } else {
-                    if(textView.text != existingText) {
-                        updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
-                        if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
-                            parent.rawString = textView.text
-                        }
+                if(textView.text != existingText) {
+                    updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                    if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
+                        parent.rawString = textView.text
                     }
                 }
             } else {

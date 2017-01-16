@@ -14,7 +14,7 @@
         <!--Note Text View Controller-->
         <scene sceneID="y3C-IT-GBl">
             <objects>
-                <viewController id="LTr-Mj-syD" customClass="NoteTextViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteTextView" id="LTr-Mj-syD" customClass="NoteTextViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ccK-6A-PCr"/>
                         <viewControllerLayoutGuide type="bottom" id="Ux7-oF-AfJ"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PgM-1X-rYR">
-                                <rect key="frame" x="16" y="10" width="343" height="593"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -33,9 +33,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ux7-oF-AfJ" firstAttribute="top" secondItem="PgM-1X-rYR" secondAttribute="bottom" id="0Wn-XE-DqO"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="PgM-1X-rYR" secondAttribute="leading" id="bKE-qG-4lO"/>
-                            <constraint firstItem="PgM-1X-rYR" firstAttribute="top" secondItem="ccK-6A-PCr" secondAttribute="bottom" constant="10" id="gz9-Vo-6F7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PgM-1X-rYR" secondAttribute="trailing" id="hr0-mP-DCV"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PgM-1X-rYR" secondAttribute="leading" constant="16" id="bKE-qG-4lO"/>
+                            <constraint firstItem="PgM-1X-rYR" firstAttribute="top" secondItem="ccK-6A-PCr" secondAttribute="bottom" id="gz9-Vo-6F7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PgM-1X-rYR" secondAttribute="trailing" constant="-16" id="hr0-mP-DCV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TFR-py-UxQ">
@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxf-gp-d9a">
-                                <rect key="frame" x="0.0" y="10" width="375" height="593"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -120,7 +120,7 @@
                         <constraints>
                             <constraint firstItem="uxf-gp-d9a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="31p-Bg-5ca"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uxf-gp-d9a" secondAttribute="bottom" id="3C2-rc-hQ5"/>
-                            <constraint firstItem="uxf-gp-d9a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Iyq-zt-lR4"/>
+                            <constraint firstItem="uxf-gp-d9a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Iyq-zt-lR4"/>
                             <constraint firstItem="uxf-gp-d9a" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Wwc-z0-TB0"/>
                         </constraints>
                     </view>
@@ -164,21 +164,23 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-uW-Bt7">
-                                            <rect key="frame" x="18" y="4.5" width="225" height="33.5"/>
+                                            <rect key="frame" x="8" y="-0.5" width="225" height="38.5"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </webView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="leading" secondItem="Ibl-CO-0cE" secondAttribute="leadingMargin" constant="10" id="KND-gi-5FF"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="leading" secondItem="Ibl-CO-0cE" secondAttribute="leadingMargin" id="KND-gi-5FF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="dZ4-jL-Dpe" secondAttribute="trailing" constant="10" id="LXs-4q-Ute"/>
                                         <constraint firstItem="dZ4-jL-Dpe" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.35" id="QlA-ks-2vh"/>
                                         <constraint firstItem="dZ4-jL-Dpe" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="R3X-gn-8jA"/>
-                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="height" secondItem="Ibl-CO-0cE" secondAttribute="height" constant="-10" id="jQk-Pg-sHE"/>
-                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="centerY" secondItem="Ibl-CO-0cE" secondAttribute="centerY" id="lhZ-sL-Vaq"/>
+                                        <constraint firstItem="YqE-uW-Bt7" firstAttribute="height" secondItem="Ibl-CO-0cE" secondAttribute="height" constant="-5" id="jQk-Pg-sHE"/>
                                         <constraint firstItem="YqE-uW-Bt7" firstAttribute="width" secondItem="Ibl-CO-0cE" secondAttribute="width" multiplier="0.6" id="yS1-FX-ouL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="YqE-uW-Bt7" firstAttribute="top" secondItem="LoS-DG-eFG" secondAttribute="top" id="BmU-It-Hyi"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dateOutlet" destination="dZ4-jL-Dpe" id="lNO-pD-UIH"/>
                                     <outlet property="webView" destination="YqE-uW-Bt7" id="VTg-eu-zjU"/>

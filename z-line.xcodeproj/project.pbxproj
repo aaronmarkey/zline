@@ -19,6 +19,7 @@
 		936653921E2B3318008A9A7C /* MarkdownKeyboardUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */; };
 		936653941E2B548E008A9A7C /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936653931E2B548E008A9A7C /* NoteTableViewCell.swift */; };
 		936653961E2B611B008A9A7C /* table-cell.css in Resources */ = {isa = PBXBuildFile; fileRef = 936653951E2B611B008A9A7C /* table-cell.css */; };
+		9378164C1E2CB2AA000DBEF0 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */; };
 		93AD10771E2983F10046D30E /* Markingbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD10761E2983F10046D30E /* Markingbird.swift */; };
 		93AD107A1E299A410046D30E /* modest-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 93AD10791E299A410046D30E /* modest-m.css */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownKeyboardUIView.swift; sourceTree = "<group>"; };
 		936653931E2B548E008A9A7C /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		936653951E2B611B008A9A7C /* table-cell.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "table-cell.css"; sourceTree = "<group>"; };
+		9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		93AD10761E2983F10046D30E /* Markingbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markingbird.swift; sourceTree = "<group>"; };
 		93AD10791E299A410046D30E /* modest-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "modest-m.css"; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 				9366538B1E2B2381008A9A7C /* MarkdownKeyboard.xib */,
 				9366538D1E2B2F6E008A9A7C /* MarkdownUIButton.swift */,
 				936653911E2B3318008A9A7C /* MarkdownKeyboardUIView.swift */,
+				9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */,
 			);
 			path = "z-line";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				936653921E2B3318008A9A7C /* MarkdownKeyboardUIView.swift in Sources */,
 				9318388A1E274DBA004F018D /* MarkdownHelpViewController.swift in Sources */,
 				9366538E1E2B2F6E008A9A7C /* MarkdownUIButton.swift in Sources */,
+				9378164C1E2CB2AA000DBEF0 /* Shortcuts.swift in Sources */,
 				931838861E2736B0004F018D /* NotePreviewViewController.swift in Sources */,
 				93EC737E1E2711D70068EB1D /* NoteTableViewController.swift in Sources */,
 				93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */,
@@ -499,7 +503,7 @@
 				INFOPLIST_FILE = "z-line/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mechancalog.z-line";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mechanicalog.zline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -514,7 +518,7 @@
 				INFOPLIST_FILE = "z-line/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mechancalog.z-line";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mechanicalog.zline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

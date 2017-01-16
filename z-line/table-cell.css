@@ -3,3 +3,9 @@ html {
   background: rgba(255, 255, 255, 0.0);
   font-size: 0.75em;
 }
+
+h1,
+h2,
+h3 {
+    text-align: left;
+}
