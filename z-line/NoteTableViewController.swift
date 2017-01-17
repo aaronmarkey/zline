@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class NoteTableViewController: UITableViewController {
+class NoteTableViewController: UITableViewController, UISearchBarDelegate {
 
     //MARK: Properties
     var notes: [NSManagedObject] = []
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet var longPressOnCellOutlet: UILongPressGestureRecognizer!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: Actions
     @IBAction func longPressOnCell(_ sender: AnyObject) {
@@ -40,6 +41,11 @@ class NoteTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        searchBar.searchBarStyle = .minimal
+        tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,9 +90,11 @@ class NoteTableViewController: UITableViewController {
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            let nib = UINib(nibName: "EmptyTable", bundle: nil)
-            let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-            self.view = empty
+            if(getNotes().isEmpty) {
+                let nib = UINib(nibName: "EmptyTable", bundle: nil)
+                let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+                self.view = empty
+            }
         }
     }
     
@@ -123,5 +131,43 @@ class NoteTableViewController: UITableViewController {
         }
     }
     
+    
+    //MARK: Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let allNotes = getNotes()
+        var filterNotes: [NSManagedObject] = []
+        let text = searchText.replacingOccurrences(of: " ", with: "")
+        
+        if(!text.isEmpty) {
+            for note in allNotes {
+                let noteObject = note as! NoteMO
+                if(noteObject.content!.lowercased().contains(text.lowercased())) {
+                    filterNotes.append(note)
+                }
+            }
+            notes = filterNotes
+        } else {
+            notes = allNotes
+        }
+
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        notes = getNotes()
+        tableView.reloadData()
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+    }
 
 }
