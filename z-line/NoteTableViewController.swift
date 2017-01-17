@@ -136,7 +136,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let allNotes = getNotes()
         var filterNotes: [NSManagedObject] = []
-        let text = searchText.replacingOccurrences(of: " ", with: "")
+        let text = searchText.trimmingCharacters(in: .whitespaces)
         
         if(!text.isEmpty) {
             for note in allNotes {
