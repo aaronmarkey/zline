@@ -161,19 +161,11 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
                 
                 tableView.addSubview(noResults)
             } else {
-                tableView.subviews.forEach({ subview in
-                    if(subview.tag == -1) {
-                        subview.removeFromSuperview()
-                    }
-                })
+                removeNothingFoundView(tableView: tableView)
             }
         } else {
             notes = allNotes
-            tableView.subviews.forEach({ subview in
-                if(subview.tag == -1) {
-                    subview.removeFromSuperview()
-                }
-            })
+            removeNothingFoundView(tableView: tableView)
         }
         
         tableView.reloadData()
@@ -194,6 +186,15 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         tableView.reloadData()
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false
+        removeNothingFoundView(tableView: tableView)
+    }
+    
+    func removeNothingFoundView(tableView view: UITableView) {
+        view.subviews.forEach({ subview in
+            if(subview.tag == -1) {
+                subview.removeFromSuperview()
+            }
+        })
     }
 
 }
