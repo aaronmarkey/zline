@@ -146,10 +146,36 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
                 }
             }
             notes = filterNotes
+            
+            if(notes.isEmpty) {
+                let noResults = UIView(frame: CGRect(x: 0.0, y: searchBar.frame.height, width: self.view.frame.width, height: 44.0))
+                noResults.backgroundColor = .white
+                noResults.tag = -1
+                
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+                noResults.addSubview(label)
+                label.center = CGPoint(x: (label.superview?.frame.width)! / 2, y: (label.superview?.frame.height)! / 2)
+                label.textAlignment = .center
+                label.textColor = customColor(color: "gray-regular")
+                label.text = "Nothing Found"
+                
+                tableView.addSubview(noResults)
+            } else {
+                tableView.subviews.forEach({ subview in
+                    if(subview.tag == -1) {
+                        subview.removeFromSuperview()
+                    }
+                })
+            }
         } else {
             notes = allNotes
+            tableView.subviews.forEach({ subview in
+                if(subview.tag == -1) {
+                    subview.removeFromSuperview()
+                }
+            })
         }
-
+        
         tableView.reloadData()
     }
     

@@ -11,7 +11,8 @@ import UIKit
 func customColor(color value: String, alpha opacity: CGFloat = 1.0) -> UIColor {
     let colors: [String:[CGFloat]] = [
         "primary": [CGFloat(153.0/255), CGFloat(102.0/255), CGFloat(51.0/255), opacity],
-        "gray-light": [CGFloat(245.0/255), CGFloat(245.0/255), CGFloat(245.0/255), opacity]
+        "gray-light": [CGFloat(245.0/255), CGFloat(245.0/255), CGFloat(245.0/255), opacity],
+        "gray-regular": [CGFloat(77.0/255), CGFloat(77.0/255), CGFloat(77.0/255), opacity]
     ]
     
     if let color = colors[value] {
