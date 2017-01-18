@@ -24,8 +24,11 @@ class MarkdownHelpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         let body = getStringFromFile(name: "markdown-help", ext: "html")
-        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css")) + generateCss(css: getStringFromFile(name: "markdown", ext: "css"))
-        let html = generateFullHtmlDocument(body: body, css: css)
+        let css = generateCss(css: getStringFromFile(name: "foghorn-m", ext: "css")
+            + getStringFromFile(name: "prism", ext: "css")
+            + getStringFromFile(name: "markdown", ext: "css"))
+        let js = generateJs(js: getStringFromFile(name: "prism", ext: "js"))
+        let html = generateFullHtmlDocument(body: body, css: css, js: js)
         
         webView.backgroundColor = customColor(color: "gray-light")
         webView.loadHTMLString(html, baseURL: nil)

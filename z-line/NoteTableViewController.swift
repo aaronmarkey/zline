@@ -27,6 +27,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = customColor(color: "primary")
         notes = getNotes()
         
         if(notes.isEmpty) {

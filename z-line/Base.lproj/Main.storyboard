@@ -41,7 +41,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TFR-py-UxQ">
                         <barButtonItem key="rightBarButtonItem" title="Help" id="FZD-9h-MMi">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="npH-cK-NQR" kind="presentation" identifier="toMarkdownHelp" id="9sQ-VZ-tgY"/>
                             </connections>
@@ -75,7 +75,9 @@
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSA-FP-tpd">
                                 <rect key="frame" x="318" y="28" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="giT-1p-r65" kind="unwind" unwindAction="cancelToNoteTableViewControllerWithSegue:" id="w6p-1D-kwX"/>
                                 </connections>
@@ -129,13 +131,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="HU3-wP-VHY"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="edit" id="py7-Eg-JS1">
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="LTr-Mj-syD" kind="show" identifier="toEditNote" id="bE8-Gh-Xyz"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="action" id="YfH-u3-HzS">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="f4Y-0g-cAl"/>
                                 </connections>
@@ -213,7 +215,7 @@
                     <navigationItem key="navigationItem" title="z_line" id="6Do-V5-nHe">
                         <barButtonItem key="backBarButtonItem" title=" " id="99m-BM-oGT"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D7I-tJ-qm5">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="LTr-Mj-syD" kind="show" identifier="toNewNote" id="XLW-M3-CAh"/>
                             </connections>
@@ -239,12 +241,12 @@
         <scene sceneID="BRh-wi-khe">
             <objects>
                 <navigationController id="TiP-lQ-C4o" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="nJX-uH-u5p">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nJX-uH-u5p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -257,6 +259,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bE8-Gh-Xyz"/>
+        <segue reference="iBs-b8-M0X"/>
     </inferredMetricsTieBreakers>
 </document>

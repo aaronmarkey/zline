@@ -21,3 +21,13 @@ tr {
 th, td {
     padding: 20px 10px;
 }
+
+.markdown-logo {
+    height: 36px;
+    width: auto;
+}
+
+pre, code {
+    padding: 0px !important;
+    margin: 0px !important;
+}
