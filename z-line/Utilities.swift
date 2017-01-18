@@ -60,3 +60,8 @@ func generateFullHtmlDocument(body: String, css: String) -> String {
             "</body>" +
         "</html>"
 }
+
+func displayShareSheet(information: String, viewController: UIViewController) {
+    let shareView = UIActivityViewController(activityItems: [information as NSString], applicationActivities: nil)
+    viewController.present(shareView, animated: true, completion: {})
+}

@@ -16,7 +16,13 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     var notes: [NSManagedObject] = []
     var index: Int = 0
     
+    //MARK: Outlets
     @IBOutlet weak var webView: UIWebView!
+    
+    //MARK: Actions
+    @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
+        displayShareSheet(information: rawString, viewController: self)
+    }
     
     
     override func viewDidLoad() {
@@ -55,7 +61,7 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     }
  
     
-    //MARK: UIWwebViewDelegate Function
+    //MARK: UIWebViewDelegate Function
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if navigationType == UIWebViewNavigationType.linkClicked {
             UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
