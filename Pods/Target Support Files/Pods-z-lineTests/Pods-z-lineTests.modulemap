@@ -1,0 +1,6 @@
+framework module Pods_z_lineTests {
+  umbrella header "Pods-z-lineTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

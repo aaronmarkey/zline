@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Down
 
 class NotePreviewViewController: UIViewController, UIWebViewDelegate {
 
@@ -36,12 +37,13 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        var markdown = Markdown()
+        let down = Down(markdownString: rawString)
+        let html = try! down.toHTML()
         let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css"))
-        let html = generateFullHtmlDocument(body: markdown.transform(rawString), css: css)
+        let fullHtml = generateFullHtmlDocument(body: html, css: css)
         
         webView.backgroundColor = .white
-        webView.loadHTMLString(html, baseURL: nil)
+        webView.loadHTMLString(fullHtml, baseURL: nil)
     }
     
 

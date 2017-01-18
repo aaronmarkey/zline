@@ -1,3 +1,21 @@
-PODFILE CHECKSUM: c3383492c0c582e8646d44bdc0931b61e8090efa
+PODS:
+  - Down (0.3)
+
+DEPENDENCIES:
+  - Down (from `https://github.com/iwasrobbed/Down.git`)
+
+EXTERNAL SOURCES:
+  Down:
+    :git: https://github.com/iwasrobbed/Down.git
+
+CHECKOUT OPTIONS:
+  Down:
+    :commit: 3131e3bfb564eaeb5a46b4538df4aa9b89e9df8b
+    :git: https://github.com/iwasrobbed/Down.git
+
+SPEC CHECKSUMS:
+  Down: dea228f55b736ea0a7b96e02dd14b33600ce83a2
+
+PODFILE CHECKSUM: 71de3f228bf30c3de027f1b4b6c36a1e82bedbc7
 
 COCOAPODS: 1.1.1

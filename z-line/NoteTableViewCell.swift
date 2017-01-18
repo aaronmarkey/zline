@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Down
 
 class NoteTableViewCell: UITableViewCell {
 
@@ -28,12 +29,13 @@ class NoteTableViewCell: UITableViewCell {
     }
     
     func configurePreview(content: String) {
-        var markdown = Markdown()
-        let fullHtml = markdown.transform(content)
-        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css")) + generateCss(css: getStringFromFile(name: "table-cell", ext: "css"))
-        let html = generateFullHtmlDocument(body: fullHtml, css: css)
+        let down = Down(markdownString: content)
+        let html = try! down.toHTML()
         
-        webView.loadHTMLString(html, baseURL: nil)
+        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css")) + generateCss(css: getStringFromFile(name: "table-cell", ext: "css"))
+        let fullHtml = generateFullHtmlDocument(body: html, css: css)
+        
+        webView.loadHTMLString(fullHtml, baseURL: nil)
         webView.backgroundColor = .clear
         webView.isOpaque = false
         webView.isUserInteractionEnabled = false

@@ -35,11 +35,6 @@ h3 {
 }
 }
 
-pre,
-code {
-    font-family: Menlo, Monaco, "Courier New", monospace;
-}
-
 pre {
     padding: .5rem;
     line-height: 1.25;
@@ -168,4 +163,6 @@ blockquote {
 pre,
 code {
     background-color: #fafafa;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    font-size: 10px !important;
 }
