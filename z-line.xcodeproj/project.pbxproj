@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		28C1102EB2D3AE2783C56851 /* Pods_z_lineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9125A391F94494BF1B59C216 /* Pods_z_lineTests.framework */; };
 		45B594E38D3096F6312F5E65 /* Pods_z_line.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FB9A29FEE2894593CA2DD8 /* Pods_z_line.framework */; };
+		9307383F1E2FEE8D007CCA06 /* prism.js in Resources */ = {isa = PBXBuildFile; fileRef = 9307383E1E2FEE8D007CCA06 /* prism.js */; };
+		930738411E2FEEBA007CCA06 /* prism.css in Resources */ = {isa = PBXBuildFile; fileRef = 930738401E2FEEBA007CCA06 /* prism.css */; };
+		930738431E2FF2AE007CCA06 /* foghorn-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 930738421E2FF2AE007CCA06 /* foghorn-m.css */; };
 		931838861E2736B0004F018D /* NotePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838851E2736B0004F018D /* NotePreviewViewController.swift */; };
 		9318388A1E274DBA004F018D /* MarkdownHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931838891E274DBA004F018D /* MarkdownHelpViewController.swift */; };
 		931838901E289602004F018D /* z_line.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9318388F1E289602004F018D /* z_line.sqlite */; };
@@ -49,6 +52,9 @@
 		66FB9A29FEE2894593CA2DD8 /* Pods_z_line.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_z_line.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7AD1BD064ACAA7F5C7D3A4 /* Pods-z-lineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z-lineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-z-lineTests/Pods-z-lineTests.release.xcconfig"; sourceTree = "<group>"; };
 		9125A391F94494BF1B59C216 /* Pods_z_lineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_z_lineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9307383E1E2FEE8D007CCA06 /* prism.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = prism.js; sourceTree = "<group>"; };
+		930738401E2FEEBA007CCA06 /* prism.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = prism.css; sourceTree = "<group>"; };
+		930738421E2FF2AE007CCA06 /* foghorn-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "foghorn-m.css"; sourceTree = "<group>"; };
 		931838851E2736B0004F018D /* NotePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotePreviewViewController.swift; sourceTree = "<group>"; };
 		931838891E274DBA004F018D /* MarkdownHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHelpViewController.swift; sourceTree = "<group>"; };
 		9318388F1E289602004F018D /* z_line.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = z_line.sqlite; sourceTree = "<group>"; };
@@ -113,6 +119,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9307383D1E2FEE7A007CCA06 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				9307383E1E2FEE8D007CCA06 /* prism.js */,
+			);
+			name = js;
+			sourceTree = "<group>";
+		};
 		936653821E2AED53008A9A7C /* html */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +138,8 @@
 		93AD10781E299A320046D30E /* css */ = {
 			isa = PBXGroup;
 			children = (
+				930738421E2FF2AE007CCA06 /* foghorn-m.css */,
+				930738401E2FEEBA007CCA06 /* prism.css */,
 				936653951E2B611B008A9A7C /* table-cell.css */,
 				936653851E2B029B008A9A7C /* markdown.css */,
 				93AD10791E299A410046D30E /* modest-m.css */,
@@ -154,6 +170,7 @@
 		93EC73571E25DE040068EB1D /* z-line */ = {
 			isa = PBXGroup;
 			children = (
+				9307383D1E2FEE7A007CCA06 /* js */,
 				936653821E2AED53008A9A7C /* html */,
 				93AD10781E299A320046D30E /* css */,
 				9318388F1E289602004F018D /* z_line.sqlite */,
@@ -292,6 +309,7 @@
 			files = (
 				93EC73661E25DE040068EB1D /* LaunchScreen.storyboard in Resources */,
 				9366538C1E2B2381008A9A7C /* MarkdownKeyboard.xib in Resources */,
+				930738431E2FF2AE007CCA06 /* foghorn-m.css in Resources */,
 				93EC73631E25DE040068EB1D /* Assets.xcassets in Resources */,
 				93AD107A1E299A410046D30E /* modest-m.css in Resources */,
 				934A13D31E2D4C5700AFE4F4 /* EmptyTable.xib in Resources */,
@@ -299,7 +317,9 @@
 				936653841E2AF54A008A9A7C /* markdown-help.html in Resources */,
 				936653961E2B611B008A9A7C /* table-cell.css in Resources */,
 				93EC735E1E25DE040068EB1D /* Main.storyboard in Resources */,
+				9307383F1E2FEE8D007CCA06 /* prism.js in Resources */,
 				936653861E2B029B008A9A7C /* markdown.css in Resources */,
+				930738411E2FEEBA007CCA06 /* prism.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

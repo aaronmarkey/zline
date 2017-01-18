@@ -32,7 +32,7 @@ class NoteTableViewCell: UITableViewCell {
         let down = Down(markdownString: content)
         let html = try! down.toHTML()
         
-        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css")) + generateCss(css: getStringFromFile(name: "table-cell", ext: "css"))
+        let css = generateCss(css: getStringFromFile(name: "foghorn-m", ext: "css")) + generateCss(css: getStringFromFile(name: "table-cell", ext: "css"))
         let fullHtml = generateFullHtmlDocument(body: html, css: css)
         
         webView.loadHTMLString(fullHtml, baseURL: nil)

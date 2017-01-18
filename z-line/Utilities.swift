@@ -49,12 +49,17 @@ func generateCss(css: String) -> String {
     return "<style>" + css + "</style>"
 }
 
-func generateFullHtmlDocument(body: String, css: String) -> String {
+func generateJs(js: String) -> String {
+    return "<script>" + js + "</script>"
+}
+
+func generateFullHtmlDocument(body: String = "", css: String = "", js: String = "") -> String {
     return
         "<html>" +
             "<head>" +
                 css +
             "</head>" +
+            js +
             "<body>" +
                 body +
             "</body>" +

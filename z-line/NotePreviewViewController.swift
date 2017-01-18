@@ -39,8 +39,9 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         let down = Down(markdownString: rawString)
         let html = try! down.toHTML()
-        let css = generateCss(css: getStringFromFile(name: "modest-m", ext: "css"))
-        let fullHtml = generateFullHtmlDocument(body: html, css: css)
+        let css = generateCss(css: getStringFromFile(name: "foghorn-m", ext: "css")) + generateCss(css: getStringFromFile(name: "prism", ext: "css"))
+        let js = generateJs(js: getStringFromFile(name: "prism", ext: "js"))
+        let fullHtml = generateFullHtmlDocument(body: html, css: css, js: js)
         
         webView.backgroundColor = .white
         webView.loadHTMLString(fullHtml, baseURL: nil)

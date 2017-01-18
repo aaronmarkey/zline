@@ -1,7 +1,7 @@
 html {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.0);
-  font-size: 1.0em;
+  font-size: 0.65em;
 }
 
 body {
@@ -12,8 +12,6 @@ h1,
 h2,
 h3,
 h4 {
-    font-size: .8em;
     text-align: left;
     font-weight: bold;
-    margin
 }
