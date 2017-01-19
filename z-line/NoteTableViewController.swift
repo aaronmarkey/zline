@@ -43,6 +43,10 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             self.view = tableView
             tableView.reloadData()
         }
+        
+        if(searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+            tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+        }
     }
     
     override func viewDidLoad() {
@@ -51,7 +55,6 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
         searchBar.searchBarStyle = .minimal
-        tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
     }
 
     override func didReceiveMemoryWarning() {
