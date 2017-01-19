@@ -20,8 +20,13 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: Actions
     @IBAction func longPressOnCell(_ sender: AnyObject) {
-        if(sender.state == UIGestureRecognizerState.began) {
-            self.performSegue(withIdentifier: "toEditNoteFromNoteTable", sender: sender)
+        let touchPoint = longPressOnCellOutlet.location(in: self.view)
+        if let index = self.tableView.indexPathForRow(at: touchPoint) {
+            if((index as NSIndexPath).row < self.tableView.visibleCells.count) {
+                if(sender.state == UIGestureRecognizerState.began) {
+                    self.performSegue(withIdentifier: "toEditNoteFromNoteTable", sender: sender)
+                }
+            }
         }
     }
     
