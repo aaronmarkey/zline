@@ -32,22 +32,25 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.tintColor = customColor(color: "primary")
-        if(notes.isEmpty) {
+        
+        if(self.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
             notes = getNotes()
+            tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+        } else {
+            notes = searchNotes(term: searchBar.text)
         }
         
-        if(notes.isEmpty) {
+        if(getNotes().isEmpty) {
             let nib = UINib(nibName: "EmptyTable", bundle: nil)
             let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
             self.view = empty
+        } else if(notes.isEmpty) {
+            createNothingFoundView()
+            self.view = tableView
+            tableView.reloadData()
         } else {
             self.view = tableView
             tableView.reloadData()
-        }
-        
-        if(searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-            tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
         }
     }
     
@@ -57,6 +60,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
         searchBar.searchBarStyle = .minimal
+        self.navigationController?.navigationBar.tintColor = customColor(color: "primary")
     }
 
     override func didReceiveMemoryWarning() {
@@ -145,41 +149,46 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let allNotes = getNotes()
-        var filterNotes: [NSManagedObject] = []
         let text = searchText.trimmingCharacters(in: .whitespaces)
+        notes = searchNotes(term: text)
         
-        if(!text.isEmpty) {
-            for note in allNotes {
-                let noteObject = note as! NoteMO
-                if(noteObject.content!.lowercased().contains(text.lowercased())) {
-                    filterNotes.append(note)
-                }
-            }
-            notes = filterNotes
-            
-            if(notes.isEmpty) {
-                let noResults = UIView(frame: CGRect(x: 0.0, y: searchBar.frame.height, width: self.view.frame.width, height: 44.0))
-                noResults.backgroundColor = .white
-                noResults.tag = -1
-                
-                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-                noResults.addSubview(label)
-                label.center = CGPoint(x: (label.superview?.frame.width)! / 2, y: (label.superview?.frame.height)! / 2)
-                label.textAlignment = .center
-                label.textColor = customColor(color: "gray-regular")
-                label.text = "Nothing Found"
-                
-                tableView.addSubview(noResults)
-            } else {
-                removeNothingFoundView(tableView: tableView)
-            }
+        if(notes.isEmpty) {
+            createNothingFoundView()
         } else {
-            notes = allNotes
             removeNothingFoundView(tableView: tableView)
         }
         
         tableView.reloadData()
+    }
+    
+    func searchNotes(term: String?) -> [NSManagedObject] {
+        if (!(term?.isEmpty)!) {
+            var filterNotes = [NSManagedObject]()
+            for note in getNotes() {
+                let noteObject = note as! NoteMO
+                if(noteObject.content!.lowercased().contains(term!.lowercased())) {
+                    filterNotes.append(note)
+                }
+            }
+            return filterNotes
+        } else {
+            return getNotes()
+        }
+    }
+    
+    func createNothingFoundView() {
+        let noResults = UIView(frame: CGRect(x: 0.0, y: searchBar.frame.height, width: self.view.frame.width, height: 44.0))
+        noResults.backgroundColor = .white
+        noResults.tag = -1
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        noResults.addSubview(label)
+        label.center = CGPoint(x: (label.superview?.frame.width)! / 2, y: (label.superview?.frame.height)! / 2)
+        label.textAlignment = .center
+        label.textColor = customColor(color: "gray-regular")
+        label.text = "Nothing Found"
+        
+        tableView.addSubview(noResults)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
