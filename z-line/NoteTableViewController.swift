@@ -14,6 +14,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     //MARK: Properties
     var notes: [NSManagedObject] = []
     
+    //MARK: Outlets
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet var longPressOnCellOutlet: UILongPressGestureRecognizer!
     @IBOutlet weak var searchBar: UISearchBar!
