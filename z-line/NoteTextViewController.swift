@@ -17,8 +17,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     
     var isNew: Bool! = false
     var existingText: String = ""
-    var notes: [NSManagedObject] = []
-    var index: Int = 0
+    var note: NSManagedObject = NSManagedObject()
     var viewControllers: [UIViewController] = []
     var nextView: String = ""
 
@@ -69,13 +68,13 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         } else {
             if(!textView.text.isEmpty) {
                 if(textView.text != existingText) {
-                    updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                    updateNote(content: textView.text, date: NSDate(), note: note)
                     if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
                         parent.rawString = textView.text
                     }
                 }
             } else {
-                deleteNote(notes: notes, index: index)
+                deleteNote(note: note)
                 let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
                 self.navigationController?.viewControllers.removeAll()
                 self.navigationController?.pushViewController(table, animated: true)

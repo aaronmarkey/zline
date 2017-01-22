@@ -7,24 +7,34 @@
 //
 
 import UIKit
+import CoreData
 
 enum Shortcut: String {
     case newNote = "newnote"
+    case lastNote = "lastnote"
 }
 
 func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -> Bool {
     var handled = false
     let type = shortcutItem.type.components(separatedBy: ".").last!
+    
+    let nav = window.rootViewController as! UINavigationController
+    let noteView = nav.storyboard!.instantiateViewController(withIdentifier: "NoteTextView") as! NoteTextViewController
+    
     if let shortcutType = Shortcut.init(rawValue: type) {
         switch shortcutType {
         case .newNote:
-            let nav = window.rootViewController as! UINavigationController
-            let noteView = nav.storyboard!.instantiateViewController(withIdentifier: "NoteTextView") as! NoteTextViewController
             noteView.isNew = true
             noteView.title = "New"
-            nav.pushViewController(noteView, animated: true)
-            handled = true
+        case .lastNote:
+            noteView.isNew = false
+            noteView.title = "Preview"
+            noteView.note = getLatestUpToDateNote()
+            
         }
+        
+        nav.pushViewController(noteView, animated: true)
+        handled = true
     }
     
     return handled

@@ -14,8 +14,7 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
 
     //MARK: Properties
     var rawString: String = ""
-    var notes: [NSManagedObject] = []
-    var index: Int = 0
+    var note: NSManagedObject = NSManagedObject()
     
     //MARK: Outlets
     @IBOutlet weak var webView: UIWebView!
@@ -57,8 +56,7 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
             destination.title = "Edit"
             destination.existingText = rawString
             destination.isNew = false
-            destination.index = index
-            destination.notes = notes
+            destination.note = note
             
         }
     }

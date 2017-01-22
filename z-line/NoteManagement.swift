@@ -27,8 +27,24 @@ func getNotes() -> [NSManagedObject] {
         let notes = try context.fetch(request)
         return notes
     } catch _ as NSError {
-        print("Cannote load notes.")
+        print("Cannot load notes.")
         return [NSManagedObject]()
+    }
+}
+
+func getLatestUpToDateNote() -> NSManagedObject {
+    let context = getContext(getDelegate())
+    let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
+    let sort = NSSortDescriptor(key: "updated_at", ascending: false)
+    request.sortDescriptors = [sort]
+    request.fetchLimit = 1
+    
+    do {
+        let notes = try context.fetch(request)
+        return notes[0]
+    } catch _ as NSError {
+        print("Cannot load latest updated first note.")
+        return NSManagedObject()
     }
 }
 
@@ -48,13 +64,13 @@ func storeNote(content: String, date: NSDate) {
     }
 }
 
-func updateNote(content: String, date: NSDate, notes: [NSManagedObject], index: Int) {
+func updateNote(content: String, date: NSDate, note: NSManagedObject) {
     if(content.isEmpty) {
-        deleteNote(notes: notes, index: index)
+        deleteNote(note: note)
     } else {
         let context = getContext(getDelegate())
-        notes[index].setValue(content, forKey: "content")
-        notes[index].setValue(date, forKey: "updated_at")
+        note.setValue(content, forKey: "content")
+        note.setValue(date, forKey: "updated_at")
         
         do {
             try context.save()
@@ -65,10 +81,10 @@ func updateNote(content: String, date: NSDate, notes: [NSManagedObject], index: 
     
 }
 
-func deleteNote(notes: [NSManagedObject], index: Int) {
+func deleteNote(note: NSManagedObject) {
     let delegate = getDelegate()
     let context = getContext(delegate)
     
-    context.delete(notes[index])
+    context.delete(note)
     delegate.saveContext()
 }

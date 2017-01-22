@@ -102,7 +102,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteNote(notes: notes, index: indexPath.row)
+            deleteNote(note: notes[indexPath.row])
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -128,11 +128,10 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let destination = segue.destination as! NoteTextViewController
             let touchPoint = longPressOnCellOutlet.location(in: self.view)
             if let index = tableView.indexPathForRow(at: touchPoint) {
-                let note = notes[(index as NSIndexPath).row] as! NoteMO
+                let note = notes[(index as NSIndexPath).row]
                 destination.isNew = false
-                destination.index = (index as NSIndexPath).row
-                destination.existingText = note.content!
-                destination.notes = notes
+                destination.existingText = (note as! NoteMO).content!
+                destination.note = note
             }
         }
         
@@ -142,8 +141,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let note = notes[(index! as NSIndexPath).row] as! NoteMO
             
             destination.rawString = note.content!
-            destination.index = (index! as NSIndexPath).row
-            destination.notes = notes
+            destination.note = notes[(index! as NSIndexPath).row]
         }
     }
     
