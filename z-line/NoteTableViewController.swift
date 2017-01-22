@@ -130,7 +130,6 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             if let index = tableView.indexPathForRow(at: touchPoint) {
                 let note = notes[(index as NSIndexPath).row]
                 destination.isNew = false
-                destination.existingText = (note as! NoteMO).content!
                 destination.note = note
             }
         }

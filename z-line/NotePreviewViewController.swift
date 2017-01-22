@@ -54,7 +54,6 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
             let destination = segue.destination as! NoteTextViewController
             
             destination.title = "Edit"
-            destination.existingText = rawString
             destination.isNew = false
             destination.note = note
             

@@ -16,7 +16,6 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     var isNew: Bool! = false
-    var existingText: String = ""
     var note: NSManagedObject = NSManagedObject()
     var viewControllers: [UIViewController] = []
     var nextView: String = ""
@@ -29,7 +28,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if(isNew == false) {
-            textView.text = existingText
+            textView.text = (note as! NoteMO).content
             textView.delegate = self
             viewControllers = (self.navigationController?.viewControllers)!
         }
@@ -67,7 +66,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
                 }
         } else {
             if(!textView.text.isEmpty) {
-                if(textView.text != existingText) {
+                if(textView.text != (note as! NoteMO).content) {
                     updateNote(content: textView.text, date: NSDate(), note: note)
                     if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
                         parent.rawString = textView.text
