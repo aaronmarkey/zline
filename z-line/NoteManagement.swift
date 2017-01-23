@@ -32,7 +32,7 @@ func getNotes() -> [NSManagedObject] {
     }
 }
 
-func getLatestUpToDateNote() -> NSManagedObject {
+func getLatestUpToDateNote() -> NSManagedObject? {
     let context = getContext(getDelegate())
     let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
     let sort = NSSortDescriptor(key: "updated_at", ascending: false)
@@ -41,10 +41,14 @@ func getLatestUpToDateNote() -> NSManagedObject {
     
     do {
         let notes = try context.fetch(request)
-        return notes[0]
+        if(!notes.isEmpty) {
+            return notes[0]
+        } else {
+            return nil
+        }
     } catch _ as NSError {
         print("Cannot load latest updated first note.")
-        return NSManagedObject()
+        return nil
     }
 }
 

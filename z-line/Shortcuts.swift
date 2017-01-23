@@ -28,7 +28,7 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
         case .lastNote:
             noteView.isNew = false
             noteView.title = "Edit"
-            noteView.note = getLatestUpToDateNote()
+            noteView.note = getLatestUpToDateNote()!
         }
         
         nav.pushViewController(noteView, animated: true)
