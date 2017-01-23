@@ -31,7 +31,8 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
             noteView.note = getLatestUpToDateNote()!
         }
         
-        nav.pushViewController(noteView, animated: true)
+        nav.popToRootViewController(animated: false)
+        nav.pushViewController(noteView, animated: false)
         handled = true
     }
     
