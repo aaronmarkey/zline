@@ -34,11 +34,15 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if(self.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-            notes = getNotes()
-            tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+        if let sb = searchBar {
+            if (sb.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+                self.notes = getNotes()
+                self.tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+            } else {
+                notes = searchNotes(term: sb.text)
+            }
         } else {
-            notes = searchNotes(term: searchBar.text)
+            notes = getNotes()
         }
         
         if(getNotes().isEmpty) {

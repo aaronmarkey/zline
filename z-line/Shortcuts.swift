@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 enum Shortcut: String {
     case newNote = "newnote"
@@ -35,6 +34,9 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
         nav.pushViewController(noteView, animated: true)
         handled = true
     }
+    
+    let cuts = UIApplication.shared.shortcutItems
+    print("\(cuts)")
     
     return handled
 }
