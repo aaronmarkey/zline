@@ -40,6 +40,7 @@ func storeNote(content: String, date: NSDate) {
     store.setValue(content, forKey: "content")
     store.setValue(date, forKey: "created_at")
     store.setValue(date, forKey: "updated_at")
+    store.setValue(false, forKey: "is_archived")
     
     do {
         try context.save()
@@ -71,4 +72,16 @@ func deleteNote(notes: [NSManagedObject], index: Int) {
     
     context.delete(notes[index])
     delegate.saveContext()
+}
+
+func archiveNote(note: NSManagedObject) {
+    let n = note as! NoteMO
+    let context = getContext(getDelegate())
+    note.setValue(!n.is_archived, forKey: "is_archived")
+    
+    do {
+        try context.save()
+    } catch _ as NSError {
+        print("Cannot flip archive value for note.")
+    }
 }
