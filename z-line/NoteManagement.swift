@@ -74,7 +74,7 @@ func deleteNote(notes: [NSManagedObject], index: Int) {
     delegate.saveContext()
 }
 
-func archiveNote(note: NSManagedObject) {
+func archiveFlipNote(note: NSManagedObject) {
     let n = note as! NoteMO
     let context = getContext(getDelegate())
     note.setValue(!n.is_archived, forKey: "is_archived")
