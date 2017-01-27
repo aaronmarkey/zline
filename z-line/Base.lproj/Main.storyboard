@@ -243,6 +243,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNoteButtonOutlet" destination="D7I-tJ-qm5" id="DzU-KP-X2u"/>
                         <outlet property="longPressOnCellOutlet" destination="ebt-rN-cAM" id="Kfy-aD-Bol"/>
                         <outlet property="navBar" destination="6Do-V5-nHe" id="FeU-cZ-OXt"/>
                         <outlet property="searchBar" destination="mnM-2g-vip" id="5ZK-6N-exP"/>

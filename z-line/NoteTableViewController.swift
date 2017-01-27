@@ -19,14 +19,17 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet var longPressOnCellOutlet: UILongPressGestureRecognizer!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var addNoteButtonOutlet: UIBarButtonItem!
     
     //MARK: Actions
     @IBAction func longPressOnCell(_ sender: AnyObject) {
-        let touchPoint = longPressOnCellOutlet.location(in: self.view)
-        if let index = self.tableView.indexPathForRow(at: touchPoint) {
-            if((index as NSIndexPath).row < self.tableView.visibleCells.count) {
-                if(sender.state == UIGestureRecognizerState.began) {
-                    self.performSegue(withIdentifier: "toEditNoteFromNoteTable", sender: sender)
+        if(!archivedNotes) {
+            let touchPoint = longPressOnCellOutlet.location(in: self.view)
+            if let index = self.tableView.indexPathForRow(at: touchPoint) {
+                if((index as NSIndexPath).row < self.tableView.visibleCells.count) {
+                    if(sender.state == UIGestureRecognizerState.began) {
+                        self.performSegue(withIdentifier: "toEditNoteFromNoteTable", sender: sender)
+                    }
                 }
             }
         }
@@ -37,6 +40,8 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         
         if(self.navigationController?.restorationIdentifier == "archivedNotes") {
             archivedNotes = true
+            addNoteButtonOutlet.isEnabled = false
+            addNoteButtonOutlet.tintColor = .white
         }
         
         if let sb = searchBar {
