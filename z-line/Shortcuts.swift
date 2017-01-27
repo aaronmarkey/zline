@@ -36,8 +36,5 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
         handled = true
     }
     
-    let cuts = UIApplication.shared.shortcutItems
-    print("\(cuts)")
-    
     return handled
 }
