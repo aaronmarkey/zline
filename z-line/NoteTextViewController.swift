@@ -16,9 +16,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     var isNew: Bool! = false
-    var existingText: String = ""
-    var notes: [NSManagedObject] = []
-    var index: Int = 0
+    var note: NSManagedObject = NSManagedObject()
     var viewControllers: [UIViewController] = []
     var nextView: String = ""
 
@@ -30,7 +28,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if(isNew == false) {
-            textView.text = existingText
+            textView.text = (note as! NoteMO).content
             textView.delegate = self
             viewControllers = (self.navigationController?.viewControllers)!
         }
@@ -51,9 +49,7 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
         let markdownKeyboardView = nib.instantiate(withOwner: self, options: nil)[0] as! MarkdownKeyboardUIView
         markdownKeyboardView.setButtons(textView: textView)
         
-        
         textView.inputAccessoryView = markdownKeyboardView
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,14 +64,14 @@ class NoteTextViewController: UIViewController, UITextViewDelegate {
                 }
         } else {
             if(!textView.text.isEmpty) {
-                if(textView.text != existingText) {
-                    updateNote(content: textView.text, date: NSDate(), notes: notes, index: index)
+                if(textView.text != (note as! NoteMO).content) {
+                    updateNote(content: textView.text, date: NSDate(), note: note)
                     if let parent = self.parent?.childViewControllers.last as? NotePreviewViewController {
                         parent.rawString = textView.text
                     }
                 }
             } else {
-                deleteNote(notes: notes, index: index)
+                deleteNote(note: note)
                 let table = self.storyboard?.instantiateViewController(withIdentifier: "NoteTable") as! NoteTableViewController
                 self.navigationController?.viewControllers.removeAll()
                 self.navigationController?.pushViewController(table, animated: true)

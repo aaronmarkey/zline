@@ -34,11 +34,15 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if(self.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-            notes = getNotes()
-            tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+        if let sb = searchBar {
+            if (sb.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+                self.notes = getNotes()
+                self.tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
+            } else {
+                notes = searchNotes(term: sb.text)
+            }
         } else {
-            notes = searchNotes(term: searchBar.text)
+            notes = getNotes()
         }
         
         if(getNotes().isEmpty) {
@@ -102,7 +106,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteNote(notes: notes, index: indexPath.row)
+            deleteNote(note: notes[indexPath.row])
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -128,11 +132,9 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let destination = segue.destination as! NoteTextViewController
             let touchPoint = longPressOnCellOutlet.location(in: self.view)
             if let index = tableView.indexPathForRow(at: touchPoint) {
-                let note = notes[(index as NSIndexPath).row] as! NoteMO
+                let note = notes[(index as NSIndexPath).row]
                 destination.isNew = false
-                destination.index = (index as NSIndexPath).row
-                destination.existingText = note.content!
-                destination.notes = notes
+                destination.note = note
             }
         }
         
@@ -142,8 +144,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let note = notes[(index! as NSIndexPath).row] as! NoteMO
             
             destination.rawString = note.content!
-            destination.index = (index! as NSIndexPath).row
-            destination.notes = notes
+            destination.note = notes[(index! as NSIndexPath).row]
         }
     }
     
