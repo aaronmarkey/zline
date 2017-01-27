@@ -166,6 +166,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="editNoteButtonOutlet" destination="py7-Eg-JS1" id="Vyf-Wq-Mt4"/>
+                        <outlet property="shareButtonOutlet" destination="YfH-u3-HzS" id="AAx-gf-sCe"/>
                         <outlet property="webView" destination="uxf-gp-d9a" id="oAv-Cf-Xj9"/>
                     </connections>
                 </viewController>
@@ -306,6 +308,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GVZ-TW-NqO"/>
-        <segue reference="iBs-b8-M0X"/>
+        <segue reference="bE8-Gh-Xyz"/>
     </inferredMetricsTieBreakers>
 </document>

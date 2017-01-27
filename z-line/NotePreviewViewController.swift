@@ -18,6 +18,8 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     
     //MARK: Outlets
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var shareButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var editNoteButtonOutlet: UIBarButtonItem!
     
     //MARK: Actions
     @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
@@ -36,6 +38,15 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if(self.navigationController?.restorationIdentifier == "archivedNotes") {
+            editNoteButtonOutlet.isEnabled = false
+            shareButtonOutlet.isEnabled = false
+            
+            editNoteButtonOutlet.tintColor = .white
+            shareButtonOutlet.tintColor = .white
+        }
+        
         let down = Down(markdownString: rawString)
         let html = try! down.toHTML()
         let css = generateCss(css: getStringFromFile(name: "markdown-8-m", ext: "css")) + generateCss(css: getStringFromFile(name: "prism", ext: "css"))
