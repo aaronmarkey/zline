@@ -36,7 +36,7 @@ func getStringFromFile(name: String, ext: String) -> String {
             let string = try String(contentsOfFile: file)
             return string
         } catch {
-            print("Could not load CSS")
+            print("Could not load file")
             return ""
         }
     } else {

@@ -14,8 +14,7 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
 
     //MARK: Properties
     var rawString: String = ""
-    var notes: [NSManagedObject] = []
-    var index: Int = 0
+    var note: NSManagedObject = NSManagedObject()
     
     //MARK: Outlets
     @IBOutlet weak var webView: UIWebView!
@@ -39,7 +38,7 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         let down = Down(markdownString: rawString)
         let html = try! down.toHTML()
-        let css = generateCss(css: getStringFromFile(name: "foghorn-m", ext: "css")) + generateCss(css: getStringFromFile(name: "prism", ext: "css"))
+        let css = generateCss(css: getStringFromFile(name: "markdown-8-m", ext: "css")) + generateCss(css: getStringFromFile(name: "prism", ext: "css"))
         let js = generateJs(js: getStringFromFile(name: "prism", ext: "js"))
         let fullHtml = generateFullHtmlDocument(body: html, css: css, js: js)
         
@@ -55,10 +54,8 @@ class NotePreviewViewController: UIViewController, UIWebViewDelegate {
             let destination = segue.destination as! NoteTextViewController
             
             destination.title = "Edit"
-            destination.existingText = rawString
             destination.isNew = false
-            destination.index = index
-            destination.notes = notes
+            destination.note = note
             
         }
     }

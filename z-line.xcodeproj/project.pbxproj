@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22EA17601E3AAE97009BD15F /* markdown-8-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 22EA175F1E3AAE97009BD15F /* markdown-8-m.css */; };
 		28C1102EB2D3AE2783C56851 /* Pods_z_lineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9125A391F94494BF1B59C216 /* Pods_z_lineTests.framework */; };
 		45B594E38D3096F6312F5E65 /* Pods_z_line.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FB9A29FEE2894593CA2DD8 /* Pods_z_line.framework */; };
 		9307383F1E2FEE8D007CCA06 /* prism.js in Resources */ = {isa = PBXBuildFile; fileRef = 9307383E1E2FEE8D007CCA06 /* prism.js */; };
@@ -27,7 +28,6 @@
 		936653961E2B611B008A9A7C /* table-cell.css in Resources */ = {isa = PBXBuildFile; fileRef = 936653951E2B611B008A9A7C /* table-cell.css */; };
 		9378164C1E2CB2AA000DBEF0 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */; };
 		939677251E2FDE4700C0CB45 /* Down.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939677241E2FDE4700C0CB45 /* Down.framework */; };
-		93AD107A1E299A410046D30E /* modest-m.css in Resources */ = {isa = PBXBuildFile; fileRef = 93AD10791E299A410046D30E /* modest-m.css */; };
 		93EC73591E25DE040068EB1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73581E25DE040068EB1D /* AppDelegate.swift */; };
 		93EC735E1E25DE040068EB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EC735C1E25DE040068EB1D /* Main.storyboard */; };
 		93EC73611E25DE040068EB1D /* z_line.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93EC735F1E25DE040068EB1D /* z_line.xcdatamodeld */; };
@@ -49,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22EA175F1E3AAE97009BD15F /* markdown-8-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "markdown-8-m.css"; sourceTree = "<group>"; };
 		66FB9A29FEE2894593CA2DD8 /* Pods_z_line.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_z_line.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7AD1BD064ACAA7F5C7D3A4 /* Pods-z-lineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-z-lineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-z-lineTests/Pods-z-lineTests.release.xcconfig"; sourceTree = "<group>"; };
 		9125A391F94494BF1B59C216 /* Pods_z_lineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_z_lineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +71,6 @@
 		936653951E2B611B008A9A7C /* table-cell.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "table-cell.css"; sourceTree = "<group>"; };
 		9378164B1E2CB2AA000DBEF0 /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		939677241E2FDE4700C0CB45 /* Down.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Down.framework; path = "Pods/../build/Debug-iphoneos/Down/Down.framework"; sourceTree = "<group>"; };
-		93AD10791E299A410046D30E /* modest-m.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "modest-m.css"; sourceTree = "<group>"; };
 		93EC73551E25DE040068EB1D /* z-line.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-line.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EC73581E25DE040068EB1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93EC735D1E25DE040068EB1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				930738401E2FEEBA007CCA06 /* prism.css */,
 				936653951E2B611B008A9A7C /* table-cell.css */,
 				936653851E2B029B008A9A7C /* markdown.css */,
-				93AD10791E299A410046D30E /* modest-m.css */,
+				22EA175F1E3AAE97009BD15F /* markdown-8-m.css */,
 			);
 			name = css;
 			sourceTree = "<group>";
@@ -310,8 +310,8 @@
 				93EC73661E25DE040068EB1D /* LaunchScreen.storyboard in Resources */,
 				9366538C1E2B2381008A9A7C /* MarkdownKeyboard.xib in Resources */,
 				930738431E2FF2AE007CCA06 /* foghorn-m.css in Resources */,
+				22EA17601E3AAE97009BD15F /* markdown-8-m.css in Resources */,
 				93EC73631E25DE040068EB1D /* Assets.xcassets in Resources */,
-				93AD107A1E299A410046D30E /* modest-m.css in Resources */,
 				934A13D31E2D4C5700AFE4F4 /* EmptyTable.xib in Resources */,
 				931838901E289602004F018D /* z_line.sqlite in Resources */,
 				936653841E2AF54A008A9A7C /* markdown-help.html in Resources */,
