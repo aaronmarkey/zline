@@ -13,6 +13,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
 
     //MARK: Properties
     var notes: [NSManagedObject] = []
+    var archivedNotes: Bool = false
     
     //MARK: Outlets
     @IBOutlet weak var navBar: UINavigationItem!
@@ -34,18 +35,22 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if(self.navigationController?.restorationIdentifier == "archivedNotes") {
+            archivedNotes = true
+        }
+        
         if let sb = searchBar {
             if (sb.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-                self.notes = getNotes()
+                self.notes = getNotes(archived: archivedNotes)
                 self.tableView.setContentOffset(CGPoint(x: 0.0, y: (self.tableView.tableHeaderView?.frame.size.height)!), animated: false)
             } else {
                 notes = searchNotes(term: sb.text)
             }
         } else {
-            notes = getNotes()
+            notes = getNotes(archived: archivedNotes)
         }
         
-        if(getNotes().isEmpty) {
+        if(getNotes(archived: archivedNotes).isEmpty) {
             let nib = UINib(nibName: "EmptyTable", bundle: nil)
             let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
             self.view = empty
@@ -110,7 +115,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            if(getNotes().isEmpty) {
+            if(getNotes(archived: archivedNotes).isEmpty) {
                 let nib = UINib(nibName: "EmptyTable", bundle: nil)
                 let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
                 self.view = empty
@@ -166,7 +171,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     func searchNotes(term: String?) -> [NSManagedObject] {
         if (!(term?.isEmpty)!) {
             var filterNotes = [NSManagedObject]()
-            for note in getNotes() {
+            for note in getNotes(archived: archivedNotes) {
                 let noteObject = note as! NoteMO
                 if(noteObject.content!.lowercased().contains(term!.lowercased())) {
                     filterNotes.append(note)
@@ -174,7 +179,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             }
             return filterNotes
         } else {
-            return getNotes()
+            return getNotes(archived: archivedNotes)
         }
     }
     
@@ -204,7 +209,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        notes = getNotes()
+        notes = getNotes(archived: archivedNotes)
         tableView.reloadData()
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false

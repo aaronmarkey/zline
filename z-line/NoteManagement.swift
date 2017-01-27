@@ -17,11 +17,14 @@ func getContext(_ appDelegate: AppDelegate) -> NSManagedObjectContext {
     return appDelegate.persistentContainer.viewContext
 }
 
-func getNotes() -> [NSManagedObject] {
+func getNotes(archived: Bool = false) -> [NSManagedObject] {
     let context = getContext(getDelegate())
     let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
     let sort = NSSortDescriptor(key: "updated_at", ascending: false)
+    let isArchived = NSPredicate(format: "is_archived == \(archived)", argumentArray: nil)
+    
     request.sortDescriptors = [sort]
+    request.predicate = isArchived
     
     do {
         let notes = try context.fetch(request)
