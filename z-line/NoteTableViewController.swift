@@ -42,6 +42,7 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             archivedNotes = true
             addNoteButtonOutlet.isEnabled = false
             addNoteButtonOutlet.tintColor = .white
+            self.title = "Archives"
         }
         
         if let sb = searchBar {
@@ -59,13 +60,16 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let nib = UINib(nibName: "EmptyTable", bundle: nil)
             let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
             self.view = empty
+            print("1")
         } else if(notes.isEmpty) {
             createNothingFoundView()
             self.view = tableView
             tableView.reloadData()
+            print("2")
         } else {
             self.view = tableView
             tableView.reloadData()
+            print("3")
         }
     }
     
@@ -111,12 +115,15 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        func asdf(a: UITableViewRowAction, b: IndexPath) -> Void {
-            
-        }
-        var actions = [UITableViewRowAction(style: .destructive, title: "Delete", handler: asdf)]
-
+        var actions = [UITableViewRowAction]()
         
+        if(self.navigationController?.restorationIdentifier == "archivedNotes") {
+            actions.append(UITableViewRowAction(style: .destructive, title: "Delete", handler: deleteNoteHandler))
+            actions.append(UITableViewRowAction(style: .normal, title: "Unarchive", handler: archiveNoteHandler))
+        } else {
+            actions.append(UITableViewRowAction(style: .normal, title: "Archive", handler: archiveNoteHandler))
+        }
+
         return actions
     }
     
@@ -124,17 +131,29 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         return 90.0
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            deleteNote(note: notes[indexPath.row])
-            notes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            if(getNotes(archived: archivedNotes).isEmpty) {
-                let nib = UINib(nibName: "EmptyTable", bundle: nil)
-                let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-                self.view = empty
-            }
+    func deleteNoteHandler(action: UITableViewRowAction, index: IndexPath) -> Void {
+        deleteNote(note: notes[index.row])
+        notes.remove(at: index.row)
+        
+        tableView.deleteRows(at: [index], with: .fade)
+        
+        if(getNotes(archived: archivedNotes).isEmpty) {
+            let nib = UINib(nibName: "EmptyTable", bundle: nil)
+            let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+            self.view = empty
+        }
+    }
+    
+    func archiveNoteHandler(action: UITableViewRowAction, index: IndexPath) -> Void {
+        archiveFlipNote(note: notes[index.row])
+        notes.remove(at: index.row)
+        
+        tableView.deleteRows(at: [index], with: .fade)
+        
+        if(getNotes(archived: archivedNotes).isEmpty) {
+            let nib = UINib(nibName: "EmptyTable", bundle: nil)
+            let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+            self.view = empty
         }
     }
     
