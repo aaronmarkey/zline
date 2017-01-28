@@ -110,6 +110,16 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        func asdf(a: UITableViewRowAction, b: IndexPath) -> Void {
+            
+        }
+        var actions = [UITableViewRowAction(style: .destructive, title: "Delete", handler: asdf)]
+
+        
+        return actions
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
