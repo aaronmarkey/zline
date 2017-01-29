@@ -39,7 +39,10 @@ func getLatestUpToDateNote() -> NSManagedObject? {
     let context = getContext(getDelegate())
     let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
     let sort = NSSortDescriptor(key: "updated_at", ascending: false)
+    let isArchived = NSPredicate(format: "is_archived == false", argumentArray: nil)
+
     request.sortDescriptors = [sort]
+    request.predicate = isArchived
     request.fetchLimit = 1
     
     do {

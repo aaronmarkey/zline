@@ -60,16 +60,13 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             let nib = UINib(nibName: "EmptyTable", bundle: nil)
             let empty = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
             self.view = empty
-            print("1")
         } else if(notes.isEmpty) {
             createNothingFoundView()
             self.view = tableView
             tableView.reloadData()
-            print("2")
         } else {
             self.view = tableView
             tableView.reloadData()
-            print("3")
         }
     }
     
