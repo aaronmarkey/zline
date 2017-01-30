@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TiP-lQ-C4o">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TiP-lQ-C4o">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -102,6 +102,24 @@
             </objects>
             <point key="canvasLocation" x="3052" y="-279.31034482758622"/>
         </scene>
+        <!--Archives-->
+        <scene sceneID="U4C-oJ-zV3">
+            <objects>
+                <navigationController restorationIdentifier="archivedNotes" storyboardIdentifier="archivedNotes" id="iGy-Pc-fNr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Archives" image="archive" selectedImage="archive-active" id="N2o-nE-5gT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="adO-BH-LgS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dz0-Qk-qXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-516" y="566"/>
+        </scene>
         <!--Note Preview View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -145,6 +163,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="editNoteButtonOutlet" destination="py7-Eg-JS1" id="Vyf-Wq-Mt4"/>
+                        <outlet property="shareButtonOutlet" destination="YfH-u3-HzS" id="AAx-gf-sCe"/>
                         <outlet property="webView" destination="uxf-gp-d9a" id="oAv-Cf-Xj9"/>
                     </connections>
                 </viewController>
@@ -152,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="1357.5999999999999" y="360.2698650674663"/>
         </scene>
-        <!--z_line-->
+        <!--Notes-->
         <scene sceneID="LGs-Wh-ofE">
             <objects>
                 <tableViewController storyboardIdentifier="NoteTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pv5-sb-IpN" customClass="NoteTableViewController" customModule="z_line" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,7 +232,7 @@
                             <outletCollection property="gestureRecognizers" destination="ebt-rN-cAM" appends="YES" id="V9w-6J-hHK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="z_line" id="6Do-V5-nHe">
+                    <navigationItem key="navigationItem" title="Notes" id="6Do-V5-nHe">
                         <barButtonItem key="backBarButtonItem" title=" " id="99m-BM-oGT"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D7I-tJ-qm5">
                             <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,6 +242,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNoteButtonOutlet" destination="D7I-tJ-qm5" id="DzU-KP-X2u"/>
                         <outlet property="longPressOnCellOutlet" destination="ebt-rN-cAM" id="Kfy-aD-Bol"/>
                         <outlet property="navBar" destination="6Do-V5-nHe" id="FeU-cZ-OXt"/>
                         <outlet property="searchBar" destination="mnM-2g-vip" id="5ZK-6N-exP"/>
@@ -237,11 +258,34 @@
             </objects>
             <point key="canvasLocation" x="400.80000000000001" y="36.431784107946029"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="OFh-XP-Keb">
+            <objects>
+                <tabBarController id="Tf2-5Q-tRE" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="A58-f8-C7a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
+                        <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iGy-Pc-fNr" kind="relationship" relationship="viewControllers" id="sIT-fz-UuG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s35-TP-X5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1567" y="94"/>
+        </scene>
+        <!--Notes-->
         <scene sceneID="BRh-wi-khe">
             <objects>
-                <navigationController id="TiP-lQ-C4o" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nJX-uH-u5p">
+                <navigationController restorationIdentifier="openNotes" storyboardIdentifier="openNotes" id="TiP-lQ-C4o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notes" image="open" selectedImage="open-active" id="34X-nq-dLC">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="-1" maxY="-1"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nJX-uH-u5p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -255,9 +299,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCZ-C7-p5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="37"/>
+            <point key="canvasLocation" x="-516" y="-420"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="archive" width="30" height="29"/>
+        <image name="archive-active" width="30" height="29"/>
+        <image name="open" width="23" height="30"/>
+        <image name="open-active" width="23" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iBs-b8-M0X"/>
     </inferredMetricsTieBreakers>

@@ -17,7 +17,10 @@ func handleShortcut(shortcutItem: UIApplicationShortcutItem, window: UIWindow) -
     var handled = false
     let type = shortcutItem.type.components(separatedBy: ".").last!
     
-    let nav = window.rootViewController as! UINavigationController
+    let tab = window.rootViewController as! UITabBarController
+    tab.selectedIndex = 0
+    let nav = tab.viewControllers?[0] as! UINavigationController
+    
     let noteView = nav.storyboard!.instantiateViewController(withIdentifier: "NoteTextView") as! NoteTextViewController
     
     if let shortcutType = Shortcut.init(rawValue: type) {
