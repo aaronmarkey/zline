@@ -118,7 +118,9 @@ class NoteTableViewController: UITableViewController, UISearchBarDelegate {
             actions.append(UITableViewRowAction(style: .destructive, title: "Delete", handler: deleteNoteHandler))
             actions.append(UITableViewRowAction(style: .normal, title: "Unarchive", handler: archiveNoteHandler))
         } else {
-            actions.append(UITableViewRowAction(style: .normal, title: "Archive", handler: archiveNoteHandler))
+//            actions.append(UITableViewRowAction(style: .normal, title: "Archive", handler: archiveNoteHandler))
+            actions.append(UITableViewRowAction(style: .destructive, title: "Delete", handler: deleteNoteHandler))
+
         }
 
         return actions
